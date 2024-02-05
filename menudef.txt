@@ -1,0 +1,76 @@
+
+AddOptionMenu "OptionsMenu"{
+	Submenu "Sin Tweaks","SinTweaksOptions"
+}
+OptionMenu "SinTweaksOptions"{
+	Title "Sin Tweaks"
+	Submenu "General","SinTweaksOptionsGeneral"
+	Submenu "Health","SinTweaksOptionsHealth"
+	Submenu "Armor","SinTweaksOptionsArmor"
+	Submenu "Weapons","SinTweaksOptionsWeapons"
+	Submenu "Ammo","SinTweaksOptionsAmmo"
+}
+OptionMenu "SinTweaksOptionsGeneral"{
+	Option "Ammo Drops Resources","sintweaks_dropresources","OnOff"
+	StaticText "Ammo spawners drop Health and Armor spawners as well."
+	StaticText "$SINOPT_DEFOFF",1
+}
+OptionMenu "SinTweaksOptionsHealth"{
+	Option "Berserk","sintweaks_berserk","OnOff"
+	StaticText "Berserk is made more useful."
+	StaticText "$SINOPT_DEFON",1
+	StaticText ""
+	Option "Stackable Health Items","sintweaks_stackhealth","OnOff"
+	StaticText "Potions, Stimpacks and Medikits are all made stackable."
+	StaticText "The Green Potion heals 5 HP instead of 2 to compensate for the lack of its Stimpack recipe."
+	StaticText "$SINOPT_DEFON",1
+	StaticText ""
+	Option "Blue Potion","sintweaks_bluepotion","OnOff"
+	StaticText "Enables the Blue Potion."
+	StaticText "$SINOPT_DEFON",1
+	StaticText ""
+	Option "Totem","sintweaks_totem","OnOff"
+	StaticText "A rare totem that sometimes replaces the BFG."
+	StaticText "$SINOPT_DEFOFF",1
+}
+OptionMenu "SinTweaksOptionsArmor"{
+	Option "Armor Rebalancing","sintweaks_armor","OnOff"
+	StaticText "More useful armor."
+	StaticText "$SINOPT_DEFON",1
+}
+OptionMenu "SinTweaksOptionsWeapons"{
+	Option "Brutal Damage Types","sintweaks_brutaldamage","OnOff"
+	StaticText "Enables compatibility with Brutal Doom monsters by giving certain puffs and projectiles matching damage types."
+	StaticText "Sin Tweaks' Rocket Launcher will fire Brutal Doom's rockets,"
+	StaticText "and Dwelling Sin's Rocket Launcher will be turned into a Nuke Launcher."
+	StaticText "$SINOPT_DEFON",1
+	StaticText ""
+	Option "Alternate Rocket Launcher","sintweaks_rocketlauncher","OnOff"
+	StaticText "Reloadable but less powerful Rocket Launcher that replaces DSin's original."
+	StaticText "It spawns with Rocket Boxes."
+	StaticText "$SINOPT_DEFOFF",1
+	StaticText ""
+	Option "Vanilla Weapon Placements","sintweaks_vanillaweapons","OnOff"
+	//StaticText "The Chaingun spawns with the SMG, and the Rocket Launcher spawns with the Chaingun."
+	StaticText "Sin Tweaks' Rocket Launcher spawns alongside the Chaingun."
+	StaticText "Turn this on in maps that expect you to use explosives, as the Chaingun sometimes isn't enough."
+	StaticText "$SINOPT_DEFOFF",1
+}
+OptionMenu "SinTweaksOptionsAmmo"{
+	Option "Less Lethal Rounds","sintweaks_lesslethal","OnOff"
+	StaticText "Rubber rounds and bean bag shells."
+	StaticText "$SINOPT_DEFOFF",1
+	StaticText ""
+	Option "Incendiary Shells","sintweaks_incendiary","OnOff"
+	StaticText "Dragon's Breath shells."
+	StaticText "$SINOPT_DEFOFF",1
+	StaticText ""
+	Option "No Loose Ammo","sintweaks_nolooseammo","OnOff"
+	StaticText "Other than magazines, loose ammo will be replaced with ammo boxes."
+	StaticText "$SINOPT_DEFOFF",1
+	StaticText ""
+	Option "Overpressured Rounds Only","sintweaks_onlypowerrounds","OnOff"
+	StaticText "Other than magazines, Overpressured Rounds will replace all loose Regular Rounds."
+	StaticText "(This will override the Pistol Box spawn of `No Loose Ammo`.)"
+	StaticText "$SINOPT_DEFOFF",1
+}

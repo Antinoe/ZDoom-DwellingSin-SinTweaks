@@ -1,0 +1,33 @@
+
+//
+//	General
+//
+server bool sintweaks_dropresources = false;
+
+//
+//	Health
+//
+server bool sintweaks_bluepotion = true;
+server bool sintweaks_berserk = true;
+server bool sintweaks_totem = false;
+server bool sintweaks_stackhealth = true;
+
+//
+//	Armor
+//
+server bool sintweaks_armor = true;
+
+//
+//	Weapons
+//
+server bool sintweaks_brutaldamage = true;
+server bool sintweaks_rocketlauncher = false;
+server bool sintweaks_vanillaweapons = false;
+
+//
+//	Ammo
+//
+server bool sintweaks_lesslethal = false;
+server bool sintweaks_incendiary = false;
+server bool sintweaks_nolooseammo = false;
+server bool sintweaks_onlypowerrounds = false;
