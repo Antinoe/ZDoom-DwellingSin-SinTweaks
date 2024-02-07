@@ -8,15 +8,15 @@ server bool sintweaks_replaceammo = false;
 //
 //	Health
 //
-server bool sintweaks_bluepotion = true;
-server bool sintweaks_berserk = true;
+server bool sintweaks_bluepotion = false;
+server bool sintweaks_berserk = false;
 server bool sintweaks_totem = false;
-server bool sintweaks_stackhealth = true;
+server bool sintweaks_stackhealth = false;
 
 //
 //	Armor
 //
-server bool sintweaks_armor = true;
+server bool sintweaks_armor = false;
 
 //
 //	Weapons
