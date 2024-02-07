@@ -11,8 +11,12 @@ OptionMenu "SinTweaksOptions"{
 	Submenu "Ammo","SinTweaksOptionsAmmo"
 }
 OptionMenu "SinTweaksOptionsGeneral"{
-	Option "Ammo Drops Resources","sintweaks_dropresources","OnOff"
-	StaticText "Ammo spawners drop Health and Armor spawners as well."
+	Option "Monsters Drops Resources","sintweaks_dropresources","OnOff"
+	StaticText "Monsters sometimes drop resources upon death, much like in RE4 and RE8."
+	StaticText "$SINOPT_DEFOFF",1
+	StaticText ""
+	Option "Ammo Replacement","sintweaks_replaceammo","OnOff"
+	StaticText "Ammo is replaced with resources."
 	StaticText "$SINOPT_DEFOFF",1
 }
 OptionMenu "SinTweaksOptionsHealth"{

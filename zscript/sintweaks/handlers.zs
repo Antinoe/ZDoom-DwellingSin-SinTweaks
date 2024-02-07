@@ -19,16 +19,34 @@ Class SinTweaksEventHandler : EventHandler{
 			}*/
 		}
 	}
+	//	Took this blueprint from Nashgore: Vengeance Edition.
+	Override void WorldThingDied(WorldEvent e)
+	{
+		If (!e.Thing) return;
+		DoThingDie(e.Thing);
+	}
+	void DoThingDie(Actor mo)
+	{
+		bool isMonster = mo.bIsMonster;
+		If (isMonster)
+		{
+			Vector3 offset = (cos(mo.angle)*32,sin(mo.angle)*32,0);
+			If(!random(0,3)){mo.Spawn("HealthBonus",mo.pos+offset,true);}
+			If(!random(0,3)){mo.Spawn("ArmorBonus",mo.pos-offset,true);}
+			If(!random(0,3)){mo.Spawn("Clip",mo.pos-offset,true);}
+			If(!random(0,3)){mo.Spawn("Shell",mo.pos-offset,true);}
+		}
+	}
 	Override void CheckReplacement(ReplaceEvent e){
 		//
 		//	General
 		//
 		If(e.Replacee is "Clip"){
-			if(cvar.GetCVar('sintweaks_dropresources').getbool()&&!random(0,3))
+			if(cvar.GetCVar('sintweaks_replaceammo').getbool())
 				e.Replacement="HealthBonus";
 		}
 		If(e.Replacee is "Shell"){
-			if(cvar.GetCVar('sintweaks_dropresources').getbool()&&!random(0,3))
+			if(cvar.GetCVar('sintweaks_replaceammo').getbool())
 				e.Replacement="ArmorBonus";
 		}
 		//

@@ -3,6 +3,7 @@
 //	General
 //
 server bool sintweaks_dropresources = false;
+server bool sintweaks_replaceammo = false;
 
 //
 //	Health
