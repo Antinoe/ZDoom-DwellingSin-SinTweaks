@@ -33,7 +33,7 @@ Class SinTweaksEventHandler : EventHandler{
 			Vector3 offset = (cos(mo.angle)*32,sin(mo.angle)*32,0);
 			If(!random(0,3)){mo.Spawn("HealthBonus",mo.pos+offset,true);}
 			If(!random(0,3)){mo.Spawn("ArmorBonus",mo.pos-offset,true);}
-			If(!random(0,3)){mo.Spawn("Clip",mo.pos-offset,true);}
+			If(!random(0,3)){mo.Spawn("Clip",mo.pos+offset,true);}
 			If(!random(0,3)){mo.Spawn("Shell",mo.pos-offset,true);}
 		}
 	}
@@ -49,6 +49,51 @@ Class SinTweaksEventHandler : EventHandler{
 			if(cvar.GetCVar('sintweaks_replaceammo').getbool())
 				e.Replacement="ArmorBonus";
 		}
+
+		//
+		//	Stacking
+		//
+		If(e.Replacee is "SinPotionGreen"){
+			if(cvar.GetCVar('sintweaks_stackablehealth').getbool())
+				e.Replacement="SinPotionGreenStackable";
+		}
+		If(e.Replacee is "SinPotionRed"){
+			if(cvar.GetCVar('sintweaks_stackablehealth').getbool())
+				e.Replacement="SinPotionRedStackable";
+		}
+		If(e.Replacee is "SinPotionBlue"){
+			if(cvar.GetCVar('sintweaks_stackablehealth').getbool())
+				e.Replacement="SinPotionBlueStackable";
+		}
+		If(e.Replacee is "SinStimpack"){
+			if(cvar.GetCVar('sintweaks_stackablehealth').getbool())
+				e.Replacement="SinStimpackStackable";
+		}
+		If(e.Replacee is "SinMedikit"){
+			if(cvar.GetCVar('sintweaks_stackablehealth').getbool())
+				e.Replacement="SinMedikitStackable";
+		}
+		If(e.Replacee is "Berserk"){
+			if(cvar.GetCVar('sintweaks_stackablehealth').getbool())
+				e.Replacement="SinBerserkStackable";
+		}
+		If(e.Replacee is "SinGrenade"){
+			if(cvar.GetCVar('sintweaks_stackablegrenades').getbool())
+				e.Replacement="SinGrenadeStackable";
+		}
+		If(e.Replacee is "SinFlashbang"){
+			if(cvar.GetCVar('sintweaks_stackablegrenades').getbool())
+				e.Replacement="SinFlashbangStackable";
+		}
+		If(e.Replacee is "SinProxMine"){
+			if(cvar.GetCVar('sintweaks_stackablegrenades').getbool())
+				e.Replacement="SinProxMineStackable";
+		}
+		If(e.Replacee is "SinAcidRipper"){
+			if(cvar.GetCVar('sintweaks_stackablegrenades').getbool())
+				e.Replacement="SinAcidRipperStackable";
+		}
+
 		//
 		//	Health
 		//
@@ -63,10 +108,6 @@ Class SinTweaksEventHandler : EventHandler{
 		If(e.Replacee is "Medikit"){
 			if(cvar.GetCVar('sintweaks_bluepotion').getbool()&&!random(0,3))
 				e.Replacement="SinPotionBlue";
-		}
-		If(e.Replacee is "Berserk"){
-			if(cvar.GetCVar('sintweaks_berserk').getbool())
-				e.Replacement="SinBerserk2";
 		}
 		If(e.Replacee is "BFG9000"){
 			if(cvar.GetCVar('sintweaks_totem').getbool()&&!random(0,3))
@@ -91,22 +132,6 @@ Class SinTweaksEventHandler : EventHandler{
 		If(e.Replacee is "SinRocketLauncher"){
 			if(cvar.GetCVar('sintweaks_rocketlauncher').getbool())
 				e.Replacement="SinRocketLauncher2";
-		}
-		If(e.Replacee is "SinGrenade"){
-			if(cvar.GetCVar('sintweaks_stackablegrenades').getbool())
-				e.Replacement="SinGrenade2";
-		}
-		If(e.Replacee is "SinFlashbang"){
-			if(cvar.GetCVar('sintweaks_stackablegrenades').getbool())
-				e.Replacement="SinFlashbang2";
-		}
-		If(e.Replacee is "SinProxMine"){
-			if(cvar.GetCVar('sintweaks_stackablegrenades').getbool())
-				e.Replacement="SinProxMine2";
-		}
-		If(e.Replacee is "SinAcidRipper"){
-			if(cvar.GetCVar('sintweaks_stackablegrenades').getbool())
-				e.Replacement="SinAcidRipper2";
 		}
 
 		//
@@ -154,7 +179,9 @@ Class SinTweaksEventHandler : EventHandler{
 		}
 
 
+		//
 		//	Brutal Damage Types
+		//
 		//	Thanks for this class checking method, Agent Ash.
 		if (cvar.GetCVar('sintweaks_brutaldamage').getbool() && e.Replacee == "Rocket"){
 			name clsname = "Rocket2";
@@ -204,28 +231,6 @@ Class SinTweaksEventHandler : EventHandler{
 			if(cvar.GetCVar('sintweaks_brutaldamage').getbool())
 				e.Replacement="SinPlasmaPuff2";
 		}
-
-		//	Stacking
-		If(e.Replacee is "SinPotionGreen"){
-			if(cvar.GetCVar('sintweaks_stackhealth').getbool())
-				e.Replacement="SinPotionGreen2";
-		}
-		If(e.Replacee is "SinPotionRed"){
-			if(cvar.GetCVar('sintweaks_stackhealth').getbool())
-				e.Replacement="SinPotionRed2";
-		}
-		If(e.Replacee is "SinPotionBlue"){
-			if(cvar.GetCVar('sintweaks_stackhealth').getbool())
-				e.Replacement="SinPotionBlue2";
-		}
-		If(e.Replacee is "SinStimpack"){
-			if(cvar.GetCVar('sintweaks_stackhealth').getbool())
-				e.Replacement="SinStimpack2";
-		}
-		If(e.Replacee is "SinMedikit"){
-			if(cvar.GetCVar('sintweaks_stackhealth').getbool())
-				e.Replacement="SinMedikit2";
-		}
 	}
 }
 
@@ -239,8 +244,8 @@ Class SinTweaksLoadoutReplacementHandler : EventHandler{
 			if(cvar.GetCVar('sintweaks_rocketlauncher').getbool()){
 				If(item is "SinRocketLauncher"){SwapSinItems("SinRocketLauncher2",item,invman,i);}
 			}
-			if(cvar.GetCVar('sintweaks_stackhealth').getbool()){
-				If(item is "SinMedikit"){SwapSinItems("SinMedikit2",item,invman,i);}
+			if(cvar.GetCVar('sintweaks_stackablehealth').getbool()){
+				If(item is "SinMedikit"){SwapSinItems("SinMedikitStackable",item,invman,i);}
 			}
 			let armor = BasicArmor(players[e.PlayerNumber].mo.FindInventory("BasicArmor"));
 			if(cvar.GetCVar('sintweaks_armor').getbool()){

@@ -2,33 +2,38 @@
 //
 //	Items
 //
-
-Class SinPotionGreen2 : SinPotionGreen{
+Class SinPotionGreenStackable : SinPotionGreen{
 	Default{
 		Health 5;
 		SinItem.Stackable 1;
 		Inventory.MaxAmount 4;
 	}
 }
-Class SinPotionRed2 : SinPotionRed{
+Class SinPotionRedStackable : SinPotionRed{
 	Default{
 		SinItem.Stackable 1;
 		Inventory.MaxAmount 4;
 	}
 }
-Class SinPotionBlue2 : SinPotionBlue{
+Class SinPotionBlueStackable : SinPotionBlue{
 	Default{
 		SinItem.Stackable 1;
 		Inventory.MaxAmount 4;
 	}
 }
-Class SinStimpack2 : SinStimpack{
+Class SinStimpackStackable : SinStimpack{
 	Default{
 		SinItem.Stackable 1;
 		Inventory.MaxAmount 4;
 	}
 }
-Class SinMedikit2 : SinMedikit{
+Class SinMedikitStackable : SinMedikit{
+	Default{
+		SinItem.Stackable 1;
+		Inventory.MaxAmount 4;
+	}
+}
+Class SinBerserkStackable : SinBerserk{
 	Default{
 		SinItem.Stackable 1;
 		Inventory.MaxAmount 4;
@@ -38,55 +43,53 @@ Class SinMedikit2 : SinMedikit{
 //
 //	Recipes
 //
-
-Class SinRecipeStimpack2 : SinRecipe{
+Class SinRecipeStimpackStackable : SinRecipe{
 	Default{
-		SinRecipe.Ingredients "SinPotionGreen2", "SinPotionGreen2";
-		SinRecipe.Result "SinStimpack2", 1;
+		SinRecipe.Ingredients "SinPotionGreenStackable", "SinPotionGreenStackable";
+		SinRecipe.Result "SinStimpackStackable", 1;
 	}
 }
-Class SinRecipeMedikit2 : SinRecipe{
+Class SinRecipeMedikitStackable : SinRecipe{
 	Default{
-		SinRecipe.Ingredients "SinPotionGreen2", "SinPotionRed2";
-		SinRecipe.Result "SinMedikit2", 1;
+		SinRecipe.Ingredients "SinPotionGreenStackable", "SinPotionRedStackable";
+		SinRecipe.Result "SinMedikitStackable", 1;
 	}
 }
-Class SinRecipeMedikitFromStimpackAndGreenPotion2 : SinRecipe{
+Class SinRecipeMedikitFromStimpackAndGreenPotionStackable : SinRecipe{
 	Default{
-		SinRecipe.Ingredients "SinStimpack2", "SinPotionGreen2";
-		SinRecipe.Result "SinMedikit2", 1;
+		SinRecipe.Ingredients "SinStimpackStackable", "SinPotionGreenStackable";
+		SinRecipe.Result "SinMedikitStackable", 1;
 	}
 }
-Class SinRecipeBerserk3 : SinRecipe{
+Class SinRecipeBerserkStackable : SinRecipe{
 	Default{
-		SinRecipe.Ingredients "SinMedikit2", "SinPotionBlue2";
-		SinRecipe.Result "SinBerserk2", 1;
+		SinRecipe.Ingredients "SinMedikitStackable", "SinPotionBlueStackable";
+		SinRecipe.Result "SinBerserkStackable", 1;
 	}
 }
 
 //
 //	Weapons
 //
-
-Class SinGrenade2 : SinGrenade{
+Class SinGrenadeStackable : SinGrenade{
 	Default{
 		Inventory.Amount 1;
 		Inventory.MaxAmount 3;
 	}
 }
-Class SinFlashbang2 : SinFlashbang{
+Class SinFlashbangStackable : SinFlashbang{
 	Default{
 		Inventory.Amount 1;
 		Inventory.MaxAmount 3;
 	}
 }
-Class SinProxMine2 : SinProxMine{
+Class SinProxMineStackable : SinProxMine{
 	Default{
 		Inventory.Amount 1;
 		Inventory.MaxAmount 3;
 	}
 }
-Class SinAcidRipper2 : SinAcidRipper{
+Class SinAcidRipperStackable : SinAcidRipper{
 	Default{
 		Inventory.Amount 1;
 		Inventory.MaxAmount 3;

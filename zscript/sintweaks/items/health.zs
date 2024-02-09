@@ -1,4 +1,17 @@
 
+Class SinRecipeMedikitFromStimpackAndGreenPotion : SinRecipe{
+	Default{
+		SinRecipe.Ingredients "SinStimpack", "SinPotionGreen";
+		SinRecipe.Result "SinMedikit", 1;
+	}
+}
+Class SinRecipeBerserk : SinRecipe{
+	Default{
+		SinRecipe.Ingredients "SinMedikit", "SinPotionBlue";
+		SinRecipe.Result "SinBerserk", 1;
+	}
+}
+
 Class SinPotionBlue : SinConsumable{
 	Default{
 		Inventory.Icon "POT3A0";
@@ -36,34 +49,6 @@ Class SinPowerPotionBlue : PowerProtection
 		Powerup.Duration -360;
 		DamageFactor "Normal", 0.25;
 		Inventory.Icon "POT3A0";
-	}
-}
-
-Class SinBerserk2 : SinBerserk{
-	Default{
-		Health 100;
-		SinHealing.BonusHealth 150;
-		Inventory.PickupMessage "Picked up a trauma pack.";
-		SinItem.Description "[+150 HP]\n[-50% DMG]\nUAC's special set of combat drugs that will put you back into combat quick and better than ever at that.";
-	}
-	Override bool Use(bool pickup){
-		//	Copy-Pasted from the SinHealing class.
-		let playe = SinPlayer(owner);
-		If(playe&&playe.health<playe.maxhealth){
-			owner.GiveInventory("PowerBerserkProtection",1);
-			//owner.GiveInventory("PowerBerserkSpeed");
-		}
-		Return Super.Use(pickup);
-		Return 0;
-	}
-}
-Class PowerBerserkProtection : PowerProtection{
-	Default
-	{
-		+INVENTORY.ADDITIVETIME;
-		Powerup.Duration -360;
-		DamageFactor "Normal", 0.25;
-		Inventory.Icon "PSTRA0";
 	}
 }
 

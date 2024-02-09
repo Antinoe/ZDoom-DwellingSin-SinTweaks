@@ -5,6 +5,7 @@ AddOptionMenu "OptionsMenu"{
 OptionMenu "SinTweaksOptions"{
 	Title "Sin Tweaks"
 	Submenu "General","SinTweaksOptionsGeneral"
+	Submenu "Stacking","SinTweaksOptionsStacking"
 	Submenu "Health","SinTweaksOptionsHealth"
 	Submenu "Armor","SinTweaksOptionsArmor"
 	Submenu "Weapons","SinTweaksOptionsWeapons"
@@ -19,16 +20,17 @@ OptionMenu "SinTweaksOptionsGeneral"{
 	StaticText "Ammo is replaced with resources."
 	StaticText "$SINOPT_DEFOFF",1
 }
-OptionMenu "SinTweaksOptionsHealth"{
-	Option "Berserk","sintweaks_berserk","OnOff"
-	StaticText "Berserk is made more useful."
-	StaticText "$SINOPT_DEFOFF",1
-	StaticText ""
-	Option "Stackable Health Items","sintweaks_stackhealth","OnOff"
+OptionMenu "SinTweaksOptionsStacking"{
+	Option "Stackable Health Items","sintweaks_stackablehealth","OnOff"
 	StaticText "Potions, Stimpacks and Medikits are all made stackable."
-	StaticText "When enabled, the Green Potion heals 5 HP instead of 2 to compensate for the lack of its Stimpack recipe."
+	StaticText "To compensate for the lack of identical-item combining, the Green Potion heals 5 HP instead of 2."
 	StaticText "$SINOPT_DEFOFF",1
 	StaticText ""
+	Option "Stackable Grenades","sintweaks_stackablegrenades","OnOff"
+	StaticText "Much like in modern Resident Evil titles, all throwables now stack to 3 instead of 1."
+	StaticText "$SINOPT_DEFOFF",1
+}
+OptionMenu "SinTweaksOptionsHealth"{
 	Option "Blue Potion","sintweaks_bluepotion","OnOff"
 	StaticText "Enables the Blue Potion, a tincture that reduces damage when ingested."
 	StaticText "$SINOPT_DEFOFF",1
@@ -61,10 +63,6 @@ OptionMenu "SinTweaksOptionsWeapons"{
 	//StaticText "The Chaingun spawns with the SMG, and the Rocket Launcher spawns with the Chaingun."
 	StaticText "Sin Tweaks' Rocket Launcher spawns alongside the Chaingun."
 	StaticText "Turn this on in maps that expect you to use explosives, as the Chaingun sometimes isn't enough."
-	StaticText "$SINOPT_DEFOFF",1
-	StaticText ""
-	Option "Stackable Grenades","sintweaks_stackablegrenades","OnOff"
-	StaticText "Much like in modern Resident Evil titles, all throwables now stack to 3 instead of 1."
 	StaticText "$SINOPT_DEFOFF",1
 }
 OptionMenu "SinTweaksOptionsAmmo"{

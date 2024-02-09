@@ -6,12 +6,17 @@ server bool sintweaks_dropresources = false;
 server bool sintweaks_replaceammo = false;
 
 //
+//	Stacking
+//
+server bool sintweaks_stackablehealth = false;
+server bool sintweaks_stackablegrenades = false;
+
+//
 //	Health
 //
 server bool sintweaks_bluepotion = false;
 server bool sintweaks_berserk = false;
 server bool sintweaks_totem = false;
-server bool sintweaks_stackhealth = false;
 
 //
 //	Armor
@@ -24,7 +29,6 @@ server bool sintweaks_armor = false;
 server bool sintweaks_brutaldamage = true;
 server bool sintweaks_rocketlauncher = false;
 server bool sintweaks_vanillaweapons = false;
-server bool sintweaks_stackablegrenades = false;
 
 //
 //	Ammo
