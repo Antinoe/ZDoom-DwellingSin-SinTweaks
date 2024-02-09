@@ -41,196 +41,79 @@ Class SinTweaksEventHandler : EventHandler{
 		//
 		//	General
 		//
-		If(e.Replacee is "Clip"){
-			if(cvar.GetCVar('sintweaks_replaceammo').getbool())
-				e.Replacement="HealthBonus";
-		}
-		If(e.Replacee is "Shell"){
-			if(cvar.GetCVar('sintweaks_replaceammo').getbool())
-				e.Replacement="ArmorBonus";
-		}
+		If(e.Replacee is "Clip"){If(cvar.GetCVar('sintweaks_replaceammo').getbool())e.Replacement="HealthBonus";}
+		If(e.Replacee is "Shell"){If(cvar.GetCVar('sintweaks_replaceammo').getbool())e.Replacement="ArmorBonus";}
 
 		//
 		//	Stacking
 		//
-		If(e.Replacee is "SinPotionGreen"){
-			if(cvar.GetCVar('sintweaks_stackablehealth').getbool())
-				e.Replacement="SinPotionGreenStackable";
-		}
-		If(e.Replacee is "SinPotionRed"){
-			if(cvar.GetCVar('sintweaks_stackablehealth').getbool())
-				e.Replacement="SinPotionRedStackable";
-		}
-		If(e.Replacee is "SinPotionBlue"){
-			if(cvar.GetCVar('sintweaks_stackablehealth').getbool())
-				e.Replacement="SinPotionBlueStackable";
-		}
-		If(e.Replacee is "SinStimpack"){
-			if(cvar.GetCVar('sintweaks_stackablehealth').getbool())
-				e.Replacement="SinStimpackStackable";
-		}
-		If(e.Replacee is "SinMedikit"){
-			if(cvar.GetCVar('sintweaks_stackablehealth').getbool())
-				e.Replacement="SinMedikitStackable";
-		}
-		If(e.Replacee is "Berserk"){
-			if(cvar.GetCVar('sintweaks_stackablehealth').getbool())
-				e.Replacement="SinBerserkStackable";
-		}
-		If(e.Replacee is "SinGrenade"){
-			if(cvar.GetCVar('sintweaks_stackablegrenades').getbool())
-				e.Replacement="SinGrenadeStackable";
-		}
-		If(e.Replacee is "SinFlashbang"){
-			if(cvar.GetCVar('sintweaks_stackablegrenades').getbool())
-				e.Replacement="SinFlashbangStackable";
-		}
-		If(e.Replacee is "SinProxMine"){
-			if(cvar.GetCVar('sintweaks_stackablegrenades').getbool())
-				e.Replacement="SinProxMineStackable";
-		}
-		If(e.Replacee is "SinAcidRipper"){
-			if(cvar.GetCVar('sintweaks_stackablegrenades').getbool())
-				e.Replacement="SinAcidRipperStackable";
-		}
+		If(e.Replacee is "SinPotionGreen"){If(cvar.GetCVar('sintweaks_stackablehealth').getbool())e.Replacement="SinPotionGreenStackable";}
+		If(e.Replacee is "SinPotionRed"){If(cvar.GetCVar('sintweaks_stackablehealth').getbool())e.Replacement="SinPotionRedStackable";}
+		If(e.Replacee is "SinPotionBlue"){If(cvar.GetCVar('sintweaks_stackablehealth').getbool())e.Replacement="SinPotionBlueStackable";}
+		If(e.Replacee is "SinStimpack"){If(cvar.GetCVar('sintweaks_stackablehealth').getbool())e.Replacement="SinStimpackStackable";}
+		If(e.Replacee is "SinMedikit"){If(cvar.GetCVar('sintweaks_stackablehealth').getbool())e.Replacement="SinMedikitStackable";}
+		If(e.Replacee is "Berserk"){If(cvar.GetCVar('sintweaks_stackablehealth').getbool())e.Replacement="SinBerserkStackable";}
+		If(e.Replacee is "SinGrenade"){If(cvar.GetCVar('sintweaks_stackablegrenades').getbool())e.Replacement="SinGrenadeStackable";}
+		If(e.Replacee is "SinFlashbang"){If(cvar.GetCVar('sintweaks_stackablegrenades').getbool())e.Replacement="SinFlashbangStackable";}
+		If(e.Replacee is "SinProxMine"){If(cvar.GetCVar('sintweaks_stackablegrenades').getbool())e.Replacement="SinProxMineStackable";}
+		If(e.Replacee is "SinAcidRipper"){If(cvar.GetCVar('sintweaks_stackablegrenades').getbool())e.Replacement="SinAcidRipperStackable";}
 
 		//
 		//	Health
 		//
-		If(e.Replacee is "HealthBonus"){
-			if(cvar.GetCVar('sintweaks_bluepotion').getbool()&&!random(0,3))
-				e.Replacement="SinPotionBlue";
-		}
-		If(e.Replacee is "Stimpack"){
-			if(cvar.GetCVar('sintweaks_bluepotion').getbool()&&!random(0,3))
-				e.Replacement="SinPotionBlue";
-		}
-		If(e.Replacee is "Medikit"){
-			if(cvar.GetCVar('sintweaks_bluepotion').getbool()&&!random(0,3))
-				e.Replacement="SinPotionBlue";
-		}
-		If(e.Replacee is "BFG9000"){
-			if(cvar.GetCVar('sintweaks_totem').getbool()&&!random(0,3))
-				e.Replacement="SinTotem";
-		}
+		If(e.Replacee is "HealthBonus"){If(cvar.GetCVar('sintweaks_bluepotion').getbool()&&!random(0,3))e.Replacement="SinPotionBlue";}
+		If(e.Replacee is "Stimpack"){If(cvar.GetCVar('sintweaks_bluepotion').getbool()&&!random(0,3))e.Replacement="SinPotionBlue";}
+		If(e.Replacee is "Medikit"){If(cvar.GetCVar('sintweaks_bluepotion').getbool()&&!random(0,3))e.Replacement="SinPotionBlue";}
+		If(e.Replacee is "BFG9000"){If(cvar.GetCVar('sintweaks_totem').getbool()&&!random(0,3))e.Replacement="SinTotem";}
 
 		//
 		//	Armor
 		//
-		If(e.Replacee is "GreenArmor"){
-			if(cvar.GetCVar('sintweaks_armor').getbool())
-				e.Replacement="SinGreenArmor2";
-		}
-		If(e.Replacee is "BlueArmor"){
-			if(cvar.GetCVar('sintweaks_armor').getbool())
-				e.Replacement="SinBlueArmor2";
-		}
+		If(e.Replacee is "GreenArmor"){If(cvar.GetCVar('sintweaks_armor').getbool())e.Replacement="SinGreenArmor2";}
+		If(e.Replacee is "BlueArmor"){If(cvar.GetCVar('sintweaks_armor').getbool())e.Replacement="SinBlueArmor2";}
 
 		//
 		//	Weapons
 		//
-		If(e.Replacee is "SinRocketLauncher"){
-			if(cvar.GetCVar('sintweaks_rocketlauncher').getbool())
-				e.Replacement="SinRocketLauncher2";
-		}
+		If(e.Replacee is "SinRocketLauncher"){If(cvar.GetCVar('sintweaks_rocketlauncher').getbool())e.Replacement="SinRocketLauncher2";}
 
 		//
 		//	Ammo
 		//
-		If(e.Replacee is "Clip"){
-			if(cvar.GetCVar('sintweaks_lesslethal').getbool()&&!random(0,3))
-				e.Replacement="SinPistolAmmoRubber";
-		}
-		If(e.Replacee is "ClipBox"){
-			if(cvar.GetCVar('sintweaks_lesslethal').getbool()&&!random(0,3))
-				e.Replacement="SinPistolAmmoRubber";
-		}
-		If(e.Replacee is "Shell"){
-			if(cvar.GetCVar('sintweaks_lesslethal').getbool()&&!random(0,3))
-				e.Replacement="SinShellBeanBag";
-		}
-		If(e.Replacee is "Shell"){
-			if(cvar.GetCVar('sintweaks_incendiary').getbool()&&!random(0,3))
-				e.Replacement="SinShellIncendiary";
-		}
-		If(e.Replacee is "SinPistolAmmoNormal"){
-			if(cvar.GetCVar('sintweaks_nolooseammo').getbool())
-				e.Replacement="SinPistolBox";
-		}
-		If(e.Replacee is "SinShellBuckshot"){
-			if(cvar.GetCVar('sintweaks_nolooseammo').getbool())
-				e.Replacement="SinShellBox";
-		}
-		If(e.Replacee is "SinShellBirdshot"){
-			if(cvar.GetCVar('sintweaks_nolooseammo').getbool())
-				e.Replacement="SinShellBox";
-		}
-		If(e.Replacee is "SinShellSlug"){
-			if(cvar.GetCVar('sintweaks_nolooseammo').getbool())
-				e.Replacement="SinShellBox";
-		}
-		If(e.Replacee is "SinRifleAmmoNormal"){
-			if(cvar.GetCVar('sintweaks_nolooseammo').getbool())
-				e.Replacement="SinRifleBox";
-		}
-		If(e.Replacee is "SinPistolAmmoNormal"){
-			if(cvar.GetCVar('sintweaks_onlypowerrounds').getbool())
-				e.Replacement="SinPistolAmmoPower";
-		}
+		If(e.Replacee is "Clip"){If(cvar.GetCVar('sintweaks_lesslethal').getbool()&&!random(0,3))e.Replacement="SinPistolAmmoRubber";}
+		If(e.Replacee is "ClipBox"){If(cvar.GetCVar('sintweaks_lesslethal').getbool()&&!random(0,3))e.Replacement="SinPistolAmmoRubber";}
+		If(e.Replacee is "Shell"){If(cvar.GetCVar('sintweaks_lesslethal').getbool()&&!random(0,3))e.Replacement="SinShellBeanBag";}
+		If(e.Replacee is "Shell"){If(cvar.GetCVar('sintweaks_incendiary').getbool()&&!random(0,3))e.Replacement="SinShellIncendiary";}
+		If(e.Replacee is "SinPistolAmmoNormal"){If(cvar.GetCVar('sintweaks_nolooseammo').getbool())e.Replacement="SinPistolBox";}
+		If(e.Replacee is "SinShellBuckshot"){If(cvar.GetCVar('sintweaks_nolooseammo').getbool())e.Replacement="SinShellBox";}
+		If(e.Replacee is "SinShellBirdshot"){If(cvar.GetCVar('sintweaks_nolooseammo').getbool())e.Replacement="SinShellBox";}
+		If(e.Replacee is "SinShellSlug"){If(cvar.GetCVar('sintweaks_nolooseammo').getbool())e.Replacement="SinShellBox";}
+		If(e.Replacee is "SinRifleAmmoNormal"){If(cvar.GetCVar('sintweaks_nolooseammo').getbool())e.Replacement="SinRifleBox";}
+		If(e.Replacee is "SinPistolAmmoNormal"){If(cvar.GetCVar('sintweaks_onlypowerrounds').getbool())e.Replacement="SinPistolAmmoPower";}
 
 
 		//
 		//	Brutal Damage Types
 		//
 		//	Thanks for this class checking method, Agent Ash.
-		if (cvar.GetCVar('sintweaks_brutaldamage').getbool() && e.Replacee == "Rocket"){
+		If (cvar.GetCVar('sintweaks_brutaldamage').getbool() && e.Replacee == "Rocket"){
 			name clsname = "Rocket2";
 			Class<Actor> cls = clsname;
-			if (cls)
-			{
-				e.Replacement = cls;
-			}
+			If (cls){e.Replacement = cls;}
 		}
-		if (cvar.GetCVar('sintweaks_brutaldamage').getbool() && e.Replacee == "SinRocket"){
+		If (cvar.GetCVar('sintweaks_brutaldamage').getbool() && e.Replacee == "SinRocket"){
 			name clsname = "NuclearRocket";
 			Class<Actor> cls = clsname;
-			if (cls)
-			{
-				e.Replacement = cls;
-			}
+			If (cls){e.Replacement = cls;}
 		}
-		If(e.Replacee is "SinPistolPuff"){
-			if(cvar.GetCVar('sintweaks_brutaldamage').getbool())
-				e.Replacement="SinPistolPuff2";
-		}
-		If(e.Replacee is "SinBuckshotPuff"){
-			if(cvar.GetCVar('sintweaks_brutaldamage').getbool())
-				e.Replacement="SinBuckshotPuff2";
-		}
-		If(e.Replacee is "SinBirdshotPuff"){
-			if(cvar.GetCVar('sintweaks_brutaldamage').getbool())
-				e.Replacement="SinBirdshotPuff2";
-		}
-		If(e.Replacee is "SinBirdshotPuff"){
-			if(cvar.GetCVar('sintweaks_brutaldamage').getbool())
-				e.Replacement="SinBirdshotPuff2";
-		}
-		If(e.Replacee is "SinSlugPuff"){
-			if(cvar.GetCVar('sintweaks_brutaldamage').getbool())
-				e.Replacement="SinSlugPuff2";
-		}
-		If(e.Replacee is "SinRiflePuff"){
-			if(cvar.GetCVar('sintweaks_brutaldamage').getbool())
-				e.Replacement="SinRiflePuff2";
-		}
-		If(e.Replacee is "SinAncientPuff"){
-			if(cvar.GetCVar('sintweaks_brutaldamage').getbool())
-				e.Replacement="SinAncientPuff2";
-		}
-		If(e.Replacee is "SinPlasmaPuff"){
-			if(cvar.GetCVar('sintweaks_brutaldamage').getbool())
-				e.Replacement="SinPlasmaPuff2";
-		}
+		If(e.Replacee is "SinPistolPuff"){If(cvar.GetCVar('sintweaks_brutaldamage').getbool())e.Replacement="SinPistolPuff2";}
+		If(e.Replacee is "SinBuckshotPuff"){If(cvar.GetCVar('sintweaks_brutaldamage').getbool())e.Replacement="SinBuckshotPuff2";}
+		If(e.Replacee is "SinBirdshotPuff"){If(cvar.GetCVar('sintweaks_brutaldamage').getbool())e.Replacement="SinBirdshotPuff2";}
+		If(e.Replacee is "SinBirdshotPuff"){If(cvar.GetCVar('sintweaks_brutaldamage').getbool())e.Replacement="SinBirdshotPuff2";}
+		If(e.Replacee is "SinSlugPuff"){If(cvar.GetCVar('sintweaks_brutaldamage').getbool())e.Replacement="SinSlugPuff2";}
+		If(e.Replacee is "SinRiflePuff"){If(cvar.GetCVar('sintweaks_brutaldamage').getbool())e.Replacement="SinRiflePuff2";}
+		If(e.Replacee is "SinAncientPuff"){If(cvar.GetCVar('sintweaks_brutaldamage').getbool())e.Replacement="SinAncientPuff2";}
+		If(e.Replacee is "SinPlasmaPuff"){If(cvar.GetCVar('sintweaks_brutaldamage').getbool())e.Replacement="SinPlasmaPuff2";}
 	}
 }
 
@@ -241,14 +124,14 @@ Class SinTweaksLoadoutReplacementHandler : EventHandler{
         If(!invman){Return;}
         For(let i=0; i<invman.items.Size(); i++){
             let item = SinItem(invman.items[i]);
-			if(cvar.GetCVar('sintweaks_rocketlauncher').getbool()){
+			If(cvar.GetCVar('sintweaks_rocketlauncher').getbool()){
 				If(item is "SinRocketLauncher"){SwapSinItems("SinRocketLauncher2",item,invman,i);}
 			}
-			if(cvar.GetCVar('sintweaks_stackablehealth').getbool()){
+			If(cvar.GetCVar('sintweaks_stackablehealth').getbool()){
 				If(item is "SinMedikit"){SwapSinItems("SinMedikitStackable",item,invman,i);}
 			}
 			let armor = BasicArmor(players[e.PlayerNumber].mo.FindInventory("BasicArmor"));
-			if(cvar.GetCVar('sintweaks_armor').getbool()){
+			If(cvar.GetCVar('sintweaks_armor').getbool()){
 				If(armor.ArmorType=="SinGreenArmor"){SwapSinArmor("SinGreenArmor2",armor);}
 				If(armor.ArmorType=="SinBlueArmor"){SwapSinArmor("SinBlueArmor2",armor);}
 			}
