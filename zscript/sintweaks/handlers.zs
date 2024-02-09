@@ -92,6 +92,22 @@ Class SinTweaksEventHandler : EventHandler{
 			if(cvar.GetCVar('sintweaks_rocketlauncher').getbool())
 				e.Replacement="SinRocketLauncher2";
 		}
+		If(e.Replacee is "SinGrenade"){
+			if(cvar.GetCVar('sintweaks_stackablegrenades').getbool())
+				e.Replacement="SinGrenade2";
+		}
+		If(e.Replacee is "SinFlashbang"){
+			if(cvar.GetCVar('sintweaks_stackablegrenades').getbool())
+				e.Replacement="SinFlashbang2";
+		}
+		If(e.Replacee is "SinProxMine"){
+			if(cvar.GetCVar('sintweaks_stackablegrenades').getbool())
+				e.Replacement="SinProxMine2";
+		}
+		If(e.Replacee is "SinAcidRipper"){
+			if(cvar.GetCVar('sintweaks_stackablegrenades').getbool())
+				e.Replacement="SinAcidRipper2";
+		}
 
 		//
 		//	Ammo

@@ -62,6 +62,10 @@ OptionMenu "SinTweaksOptionsWeapons"{
 	StaticText "Sin Tweaks' Rocket Launcher spawns alongside the Chaingun."
 	StaticText "Turn this on in maps that expect you to use explosives, as the Chaingun sometimes isn't enough."
 	StaticText "$SINOPT_DEFOFF",1
+	StaticText ""
+	Option "Stackable Grenades","sintweaks_stackablegrenades","OnOff"
+	StaticText "Much like in modern Resident Evil titles, all throwables now stack to 3 instead of 1."
+	StaticText "$SINOPT_DEFOFF",1
 }
 OptionMenu "SinTweaksOptionsAmmo"{
 	Option "Less Lethal Rounds","sintweaks_lesslethal","OnOff"

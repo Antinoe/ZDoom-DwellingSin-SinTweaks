@@ -63,3 +63,32 @@ Class SinRecipeBerserk3 : SinRecipe{
 		SinRecipe.Result "SinBerserk2", 1;
 	}
 }
+
+//
+//	Weapons
+//
+
+Class SinGrenade2 : SinGrenade{
+	Default{
+		Inventory.Amount 1;
+		Inventory.MaxAmount 3;
+	}
+}
+Class SinFlashbang2 : SinFlashbang{
+	Default{
+		Inventory.Amount 1;
+		Inventory.MaxAmount 3;
+	}
+}
+Class SinProxMine2 : SinProxMine{
+	Default{
+		Inventory.Amount 1;
+		Inventory.MaxAmount 3;
+	}
+}
+Class SinAcidRipper2 : SinAcidRipper{
+	Default{
+		Inventory.Amount 1;
+		Inventory.MaxAmount 3;
+	}
+}
