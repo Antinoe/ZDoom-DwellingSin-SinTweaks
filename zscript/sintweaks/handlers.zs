@@ -91,7 +91,6 @@ Class SinTweaksEventHandler : EventHandler{
 		If(e.Replacee is "SinRifleAmmoNormal"){If(cvar.GetCVar('sintweaks_nolooseammo').getbool())e.Replacement="SinRifleBox";}
 		If(e.Replacee is "SinPistolAmmoNormal"){If(cvar.GetCVar('sintweaks_onlypowerrounds').getbool())e.Replacement="SinPistolAmmoPower";}
 
-
 		//
 		//	Brutal Damage Types
 		//
@@ -114,6 +113,8 @@ Class SinTweaksEventHandler : EventHandler{
 		If(e.Replacee is "SinRiflePuff"){If(cvar.GetCVar('sintweaks_brutaldamage').getbool())e.Replacement="SinRiflePuff2";}
 		If(e.Replacee is "SinAncientPuff"){If(cvar.GetCVar('sintweaks_brutaldamage').getbool())e.Replacement="SinAncientPuff2";}
 		If(e.Replacee is "SinPlasmaPuff"){If(cvar.GetCVar('sintweaks_brutaldamage').getbool())e.Replacement="SinPlasmaPuff2";}
+		If(e.Replacee is "SinGrenadeThrown"){If(cvar.GetCVar('sintweaks_brutaldamage').getbool())e.Replacement="SinGrenadeThrownBrutal";}
+		If(e.Replacee is "SinProxMineThrown"){If(cvar.GetCVar('sintweaks_brutaldamage').getbool())e.Replacement="SinProxMineThrownBrutal";}
 	}
 }
 

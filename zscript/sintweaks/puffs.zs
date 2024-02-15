@@ -2,7 +2,6 @@
 //
 //	Brutal Replacements
 //
-
 Class SinPistolPuff2 : SinPistolPuff{
 	Default{
 		Damagetype "Pistol";
@@ -39,10 +38,24 @@ Class SinPlasmaPuff2 : SinPlasmaPuff{
 	}
 }
 
+Class SinGrenadeThrownBrutal : SinGrenadeThrown{
+	States{
+	Explode:
+		TNT1 A 0 {A_SpawnItemEx("Rocket",0,0,0,0,0,-10,0);}
+		Stop;
+	}
+}
+Class SinProxMineThrownBrutal : SinProxMineThrown{
+	States{
+	Explode:
+		TNT1 A 0 {A_SpawnItemEx("Rocket",0,0,0,0,0,-10,0);}
+		Stop;
+	}
+}
+
 //
 //	Custom
 //
-
 Class SinIncendiaryPuff : SinBulletPuff{
 	Default{
 		Decal "SinSlugChip";
