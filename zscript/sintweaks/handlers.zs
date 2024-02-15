@@ -31,10 +31,10 @@ Class SinTweaksEventHandler : EventHandler{
 		If (isMonster)
 		{
 			Vector3 offset = (cos(mo.angle)*32,sin(mo.angle)*32,0);
-			If(!random(0,3)){mo.Spawn("HealthBonus",mo.pos+offset,true);}
-			If(!random(0,3)){mo.Spawn("ArmorBonus",mo.pos-offset,true);}
-			If(!random(0,3)){mo.Spawn("Clip",mo.pos+offset,true);}
-			If(!random(0,3)){mo.Spawn("Shell",mo.pos-offset,true);}
+			If(!random(0,3)){
+				If(!random(0,3)){mo.Spawn("HealthBonus",mo.pos+offset,true);}
+				Else{mo.Spawn("ArmorBonus",mo.pos-offset,true);}
+			}
 		}
 	}
 	Override void CheckReplacement(ReplaceEvent e){

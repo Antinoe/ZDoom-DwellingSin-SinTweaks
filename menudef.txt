@@ -13,11 +13,11 @@ OptionMenu "SinTweaksOptions"{
 }
 OptionMenu "SinTweaksOptionsGeneral"{
 	Option "Monsters Drops Resources","sintweaks_dropresources","OnOff"
-	StaticText "Monsters sometimes drop resources upon death, much like in RE4 and RE8."
+	StaticText "Monsters sometimes drop resources upon death, similar to RE4 and RE8."
 	StaticText "$SINOPT_DEFOFF",1
 	StaticText ""
 	Option "Ammo Replacement","sintweaks_replaceammo","OnOff"
-	StaticText "Ammo is replaced with resources."
+	StaticText "Ammunition is replaced with resources."
 	StaticText "$SINOPT_DEFOFF",1
 }
 OptionMenu "SinTweaksOptionsStacking"{
