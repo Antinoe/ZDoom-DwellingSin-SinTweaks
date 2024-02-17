@@ -120,11 +120,12 @@ Class SinTweaksEventHandler : EventHandler{
 
 //	Thanks for this, Jarewill.
 Class SinTweaksLoadoutReplacementHandler : EventHandler{
+	//	Old code.
 	Override void PlayerEntered(PlayerEvent e){
-        let invman = SinInvManager(players[e.PlayerNumber].mo.FindInventory("SinInvManager"));
-        If(!invman){Return;}
-        For(let i=0; i<invman.items.Size(); i++){
-            let item = SinItem(invman.items[i]);
+		let invman = SinInvManager(players[e.PlayerNumber].mo.FindInventory("SinInvManager"));
+		If(!invman){Return;}
+		For(let i=0; i<invman.items.Size(); i++){
+			let item = SinItem(invman.items[i]);
 			If(cvar.GetCVar('sintweaks_rocketlauncher').getbool()){
 				If(item is "SinRocketLauncher"){SwapSinItems("SinRocketLauncher2",item,invman,i);}
 			}
@@ -137,21 +138,58 @@ Class SinTweaksLoadoutReplacementHandler : EventHandler{
 				If(armor.ArmorType=="SinBlueArmor"){SwapSinArmor("SinBlueArmor2",armor);}
 			}
 		}
-    }
-    void SwapSinItems(Class<SinItem> newitem, SinItem olditem, SinInvManager invman, int index){
-        invman.items.Delete(index);
-        If(olditem.big){invman.items.Delete(index);}
-        olditem.Destroy();
-        let item = SinItem(Actor.Spawn(newitem));
-        item.PostBeginPlay();
-        item.SinfulPickup(invman,index);
-    }
-    void SwapSinArmor(Class<SinArmor> newarmor, BasicArmor armor){
-        let item = SinArmor(Actor.Spawn(newarmor));
-        armor.SavePercent = Clamp(item.prot,0,100)/100;
-        armor.Amount = item.Amount; armor.MaxAmount = item.Amount;
-        armor.ActualSaveAmount = item.Amount;
-        armor.icon = item.icon; armor.ArmorType = item.GetClassName();
-        item.Destroy();
-    }
+	}
+	//	WIP Code.
+	/*
+	Override void WorldTick(){
+		For(int i=0; i<MAXPLAYERS; i++){
+			If(!playeringame[i] || !players[i].mo){Continue;}
+			let invman = SinInvManager(players[i].mo.FindInventory("SinInvManager"));
+			If(!invman){Return;}
+			For(let i=0; i<invman.items.Size(); i++){
+				let item = SinItem(invman.items[i]);
+				If(cvar.GetCVar('sintweaks_armor').getbool()){
+				If(item is "SinRocketLauncher"){SwapSinItems("SinRocketLauncher2",item,invman,i);}
+				//	Very buggy..
+				//
+				Else If(item is "SinPotionGreen"){SwapSinItems("SinPotionGreenStackable",item,invman,i);}
+				Else If(item is "SinPotionRed"){SwapSinItems("SinPotionRedStackable",item,invman,i);}
+				Else If(item is "SinPotionBlue"){SwapSinItems("SinPotionBlueStackable",item,invman,i);}
+				Else If(item is "SinStimpack"){SwapSinItems("SinStimpackStackable",item,invman,i);}
+				Else If(item is "SinMedikit"){SwapSinItems("SinMedikitStackable",item,invman,i);}
+				Else If(item is "SinBerserk"){SwapSinItems("SinBerserkStackable",item,invman,i);}
+				Else If(item is "SinGrenade"){SwapSinItems("SinGrenadeStackable",item,invman,i);}
+				Else If(item is "SinFlashbang"){SwapSinItems("SinFlashbangStackable",item,invman,i);}
+				Else If(item is "SinProxMine"){SwapSinItems("SinProxMineStackable",item,invman,i);}
+				Else If(item is "SinAcidRipper"){SwapSinItems("SinAcidRipperStackable",item,invman,i);}
+				//
+				If(cvar.GetCVar('sintweaks_armor').getbool()){
+					If(item is "SinGreenArmor"){SwapSinItems("SinGreenArmor2",item,invman,i);}
+					Else If(item is "SinBlueArmor"){SwapSinItems("SinBlueArmor2",item,invman,i);}
+				}
+			}
+			let armor = BasicArmor(players[i].mo.FindInventory("BasicArmor"));
+			If(cvar.GetCVar('sintweaks_armor').getbool()){
+				If(armor.ArmorType=="SinGreenArmor"){SwapSinArmor("SinGreenArmor2",armor);}
+				Else If(armor.ArmorType=="SinBlueArmor"){SwapSinArmor("SinBlueArmor2",armor);}
+			}
+		}
+	}
+	*/
+	void SwapSinItems(Class<SinItem> newitem, SinItem olditem, SinInvManager invman, int index){
+		invman.items.Delete(index);
+		If(olditem.big){invman.items.Delete(index);}
+		olditem.Destroy();
+		let item = SinItem(Actor.Spawn(newitem));
+		item.PostBeginPlay();
+		item.SinfulPickup(invman,index);
+	}
+	void SwapSinArmor(Class<SinArmor> newarmor, BasicArmor armor){
+		let item = SinArmor(Actor.Spawn(newarmor));
+		armor.SavePercent = Clamp(item.prot,0,100)/100;
+		armor.Amount = item.Amount; armor.MaxAmount = item.Amount;
+		armor.ActualSaveAmount = item.Amount;
+		armor.icon = item.icon; armor.ArmorType = item.GetClassName();
+		item.Destroy();
+	}
 }
