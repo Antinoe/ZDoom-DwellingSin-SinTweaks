@@ -28,6 +28,7 @@ OptionMenu "SinTweaksOptionsStacking"{
 	StaticText ""
 	Option "Stackable Grenades","sintweaks_stackablegrenades","OnOff"
 	StaticText "Much like in modern Resident Evil titles, all throwables now stack to 3 instead of 1."
+	StaticText "However, they cannot be crafted, as that would require dozens of new Gunpowder classes."
 	StaticText "$SINOPT_DEFOFF",1
 }
 OptionMenu "SinTweaksOptionsHealth"{
