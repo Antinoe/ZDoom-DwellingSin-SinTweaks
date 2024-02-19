@@ -33,7 +33,7 @@ Class SinGrenadeLauncher : SinWeapon{
 	Override void HandleSprite(int status){cursprite=spawnstate.sprite;}
 }
 */
-Class SinRocketLauncher2 : SinWeapon{
+Class SinTweaksRocketLauncher : SinWeapon{
 	Default{
 		Inventory.Icon "LAUNA0";
 		Tag "$SINWEAP_ROCKET";

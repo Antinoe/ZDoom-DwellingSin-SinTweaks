@@ -3,15 +3,15 @@ Class SinTweaksEventHandler : EventHandler{
 	Override void WorldThingSpawned(WorldEvent e){
 		If(e.Thing is "SinItem"){
 			let item = SinItem(e.Thing);
-			//If(cvar.GetCVar('sintweaks_rocketlauncher').getbool() && item is "SinRocketLauncher2"){
-			If(item is "SinRocketLauncher2"){
+			//If(cvar.GetCVar('sintweaks_rocketlauncher').getbool() && item is "SinTweaksRocketLauncher"){
+			If(item is "SinTweaksRocketLauncher"){
 				Vector3 offset = (cos(e.Thing.angle)*-32,sin(e.Thing.angle)*-32,0);
 				e.Thing.Spawn("SinRocketBox",e.Thing.pos+offset);
 				e.Thing.Spawn("SinRocketBox",e.Thing.pos-offset);
 			}
 			If(cvar.GetCVar('sintweaks_vanillaweapons').getbool() && item is "SinChaingun"){
 				Vector3 offset = (cos(e.Thing.angle)*-32,sin(e.Thing.angle)*-32,0);
-				e.Thing.Spawn("SinRocketLauncher2",e.Thing.pos+offset);
+				e.Thing.Spawn("SinTweaksRocketLauncher",e.Thing.pos+offset);
 			}
 			/*If(cvar.GetCVar('sintweaks_vanillaweapons').getbool() && item is "SinSMG"){
 				Vector3 offset = (cos(e.Thing.angle)*-32,sin(e.Thing.angle)*-32,0);
@@ -75,7 +75,7 @@ Class SinTweaksEventHandler : EventHandler{
 		//
 		//	Weapons
 		//
-		If(e.Replacee is "SinRocketLauncher"){If(cvar.GetCVar('sintweaks_rocketlauncher').getbool())e.Replacement="SinRocketLauncher2";}
+		If(e.Replacee is "SinRocketLauncher"){If(cvar.GetCVar('sintweaks_rocketlauncher').getbool())e.Replacement="SinTweaksRocketLauncher";}
 
 		//
 		//	Ammo
@@ -127,7 +127,7 @@ Class SinTweaksLoadoutReplacementHandler : EventHandler{
 		For(let i=0; i<invman.items.Size(); i++){
 			let item = SinItem(invman.items[i]);
 			If(cvar.GetCVar('sintweaks_rocketlauncher').getbool()){
-				If(item is "SinRocketLauncher"){SwapSinItems("SinRocketLauncher2",item,invman,i);}
+				If(item is "SinRocketLauncher"){SwapSinItems("SinTweaksRocketLauncher",item,invman,i);}
 			}
 			If(cvar.GetCVar('sintweaks_stackablehealth').getbool()){
 				If(item is "SinMedikit"){SwapSinItems("SinMedikitStackable",item,invman,i);}
@@ -149,7 +149,7 @@ Class SinTweaksLoadoutReplacementHandler : EventHandler{
 			For(let i=0; i<invman.items.Size(); i++){
 				let item = SinItem(invman.items[i]);
 				If(cvar.GetCVar('sintweaks_armor').getbool()){
-				If(item is "SinRocketLauncher"){SwapSinItems("SinRocketLauncher2",item,invman,i);}
+				If(item is "SinRocketLauncher"){SwapSinItems("SinTweaksRocketLauncher",item,invman,i);}
 				//	Very buggy..
 				//
 				Else If(item is "SinPotionGreen"){SwapSinItems("SinPotionGreenStackable",item,invman,i);}
