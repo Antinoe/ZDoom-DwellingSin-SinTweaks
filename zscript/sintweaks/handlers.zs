@@ -50,6 +50,7 @@ Class SinTweaksEventHandler : EventHandler{
 		If(e.Replacee is "SinPotionGreen"){If(cvar.GetCVar('sintweaks_stackablehealth').getbool())e.Replacement="SinPotionGreenStackable";}
 		If(e.Replacee is "SinPotionRed"){If(cvar.GetCVar('sintweaks_stackablehealth').getbool())e.Replacement="SinPotionRedStackable";}
 		If(e.Replacee is "SinPotionBlue"){If(cvar.GetCVar('sintweaks_stackablehealth').getbool())e.Replacement="SinPotionBlueStackable";}
+		If(e.Replacee is "SinPotionYellow"){If(cvar.GetCVar('sintweaks_stackablehealth').getbool())e.Replacement="SinPotionYellowStackable";}
 		If(e.Replacee is "SinStimpack"){If(cvar.GetCVar('sintweaks_stackablehealth').getbool())e.Replacement="SinStimpackStackable";}
 		If(e.Replacee is "SinMedikit"){If(cvar.GetCVar('sintweaks_stackablehealth').getbool())e.Replacement="SinMedikitStackable";}
 		If(e.Replacee is "Berserk"){If(cvar.GetCVar('sintweaks_stackablehealth').getbool())e.Replacement="SinBerserkStackable";}
@@ -64,6 +65,7 @@ Class SinTweaksEventHandler : EventHandler{
 		If(e.Replacee is "HealthBonus"){If(cvar.GetCVar('sintweaks_bluepotion').getbool()&&!random(0,3))e.Replacement="SinPotionBlue";}
 		If(e.Replacee is "Stimpack"){If(cvar.GetCVar('sintweaks_bluepotion').getbool()&&!random(0,3))e.Replacement="SinPotionBlue";}
 		If(e.Replacee is "Medikit"){If(cvar.GetCVar('sintweaks_bluepotion').getbool()&&!random(0,3))e.Replacement="SinPotionBlue";}
+		If(e.Replacee is "Berserk"){If(cvar.GetCVar('sintweaks_bluepotion').getbool()&&!random(0,3))e.Replacement="SinPotionYellow";}
 		If(e.Replacee is "BFG9000"){If(cvar.GetCVar('sintweaks_totem').getbool()&&!random(0,3))e.Replacement="SinTotem";}
 
 		//

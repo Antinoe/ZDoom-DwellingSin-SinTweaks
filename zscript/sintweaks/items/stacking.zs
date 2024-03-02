@@ -21,6 +21,12 @@ Class SinPotionBlueStackable : SinPotionBlue{
 		Inventory.MaxAmount 4;
 	}
 }
+Class SinPotionYellowStackable : SinPotionYellow{
+	Default{
+		SinItem.Stackable 1;
+		Inventory.MaxAmount 4;
+	}
+}
 Class SinStimpackStackable : SinStimpack{
 	Default{
 		SinItem.Stackable 1;

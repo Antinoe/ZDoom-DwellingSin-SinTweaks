@@ -16,7 +16,7 @@ Class SinPotionBlue : SinConsumable{
 	Default{
 		Inventory.Icon "POT3A0";
 		Tag "Blue Potion";
-		Inventory.PickupMessage "$SINITEM_POTIONRPKUP";
+		Inventory.PickupMessage "Picked up a blue potion.";
 		SinItem.Description "$SINITEM_POTIONRDESC";
 		SinItem.RemoveWhenEmpty 1;
 	}
@@ -49,6 +49,35 @@ Class SinPowerPotionBlue : PowerProtection
 		Powerup.Duration -360;
 		DamageFactor "Normal", 0.25;
 		Inventory.Icon "POT3A0";
+	}
+}
+
+Class SinPotionYellow : SinConsumable{
+	Default{
+		Inventory.Icon "POT3A0";
+		Tag "Yellow Potion";
+		Inventory.PickupMessage "Picked up a yellow potion.";
+		SinItem.Description "$SINITEM_POTIONRDESC";
+		SinItem.RemoveWhenEmpty 1;
+	}
+	States{Spawn: POT3 A -1; Stop;}
+	Override bool Use(bool pickup){
+		If(owner&&Amount>0){
+			let playe = SinPlayer(owner);
+			owner.GiveInventory("UpgradeStamina",5);
+			Amount--;
+			If(Amount<1&&delempty){
+				let invman = SinInvManager(owner.FindInventory("SinInvManager"));
+				int index = invman.items.Find(self);
+				If(index!=invman.items.Size()){
+					invman.DeleteFrom(index);
+					Destroy();
+				}
+			}
+			Return 1;
+		}
+		Return Super.Use(pickup);
+		Return 0;
 	}
 }
 
