@@ -45,21 +45,6 @@ Class SinTweaksEventHandler : EventHandler{
 		If(e.Replacee is "Shell"){If(cvar.GetCVar('sintweaks_replaceammo').getbool())e.Replacement="ArmorBonus";}
 
 		//
-		//	Stacking
-		//
-		If(e.Replacee is "SinPotionGreen"){If(cvar.GetCVar('sintweaks_stackablehealth').getbool())e.Replacement="SinPotionGreenStackable";}
-		If(e.Replacee is "SinPotionRed"){If(cvar.GetCVar('sintweaks_stackablehealth').getbool())e.Replacement="SinPotionRedStackable";}
-		If(e.Replacee is "SinPotionBlue"){If(cvar.GetCVar('sintweaks_stackablehealth').getbool())e.Replacement="SinPotionBlueStackable";}
-		If(e.Replacee is "SinPotionYellow"){If(cvar.GetCVar('sintweaks_stackablehealth').getbool())e.Replacement="SinPotionYellowStackable";}
-		If(e.Replacee is "SinStimpack"){If(cvar.GetCVar('sintweaks_stackablehealth').getbool())e.Replacement="SinStimpackStackable";}
-		If(e.Replacee is "SinMedikit"){If(cvar.GetCVar('sintweaks_stackablehealth').getbool())e.Replacement="SinMedikitStackable";}
-		If(e.Replacee is "Berserk"){If(cvar.GetCVar('sintweaks_stackablehealth').getbool())e.Replacement="SinBerserkStackable";}
-		If(e.Replacee is "SinGrenade"){If(cvar.GetCVar('sintweaks_stackablegrenades').getbool())e.Replacement="SinGrenadeStackable";}
-		If(e.Replacee is "SinFlashbang"){If(cvar.GetCVar('sintweaks_stackablegrenades').getbool())e.Replacement="SinFlashbangStackable";}
-		If(e.Replacee is "SinProxMine"){If(cvar.GetCVar('sintweaks_stackablegrenades').getbool())e.Replacement="SinProxMineStackable";}
-		If(e.Replacee is "SinAcidRipper"){If(cvar.GetCVar('sintweaks_stackablegrenades').getbool())e.Replacement="SinAcidRipperStackable";}
-
-		//
 		//	Health
 		//
 		If(e.Replacee is "HealthBonus"){If(cvar.GetCVar('sintweaks_bluepotion').getbool()&&!random(0,3))e.Replacement="SinPotionBlue";}
@@ -67,12 +52,6 @@ Class SinTweaksEventHandler : EventHandler{
 		If(e.Replacee is "Medikit"){If(cvar.GetCVar('sintweaks_bluepotion').getbool()&&!random(0,3))e.Replacement="SinPotionBlue";}
 		If(e.Replacee is "Berserk"){If(cvar.GetCVar('sintweaks_bluepotion').getbool()&&!random(0,3))e.Replacement="SinPotionYellow";}
 		If(e.Replacee is "BFG9000"){If(cvar.GetCVar('sintweaks_totem').getbool()&&!random(0,3))e.Replacement="SinTotem";}
-
-		//
-		//	Armor
-		//
-		If(e.Replacee is "GreenArmor"){If(cvar.GetCVar('sintweaks_armor').getbool())e.Replacement="SinGreenArmor2";}
-		If(e.Replacee is "BlueArmor"){If(cvar.GetCVar('sintweaks_armor').getbool())e.Replacement="SinBlueArmor2";}
 
 		//
 		//	Weapons
@@ -122,7 +101,6 @@ Class SinTweaksEventHandler : EventHandler{
 
 //	Thanks for this, Jarewill.
 Class SinTweaksLoadoutReplacementHandler : EventHandler{
-	//	Old code.
 	Override void PlayerEntered(PlayerEvent e){
 		let invman = SinInvManager(players[e.PlayerNumber].mo.FindInventory("SinInvManager"));
 		If(!invman){Return;}
@@ -131,18 +109,43 @@ Class SinTweaksLoadoutReplacementHandler : EventHandler{
 			If(cvar.GetCVar('sintweaks_rocketlauncher').getbool()){
 				If(item is "SinRocketLauncher"){SwapSinItems("SinTweaksRocketLauncher",item,invman,i);}
 			}
-			If(cvar.GetCVar('sintweaks_stackablehealth').getbool()){
-				If(item is "SinMedikit"){SwapSinItems("SinMedikitStackable",item,invman,i);}
-			}
 			let armor = BasicArmor(players[e.PlayerNumber].mo.FindInventory("BasicArmor"));
 			If(cvar.GetCVar('sintweaks_armor').getbool()){
-				If(armor.ArmorType=="SinGreenArmor"){SwapSinArmor("SinGreenArmor2",armor);}
-				If(armor.ArmorType=="SinBlueArmor"){SwapSinArmor("SinBlueArmor2",armor);}
+				//	Some error with item.prot.
+				//If(armor.ArmorType=="SinGreenArmor"){armor.amount=100;armor.maxamount=100;item.prot=75;}
+				//If(armor.ArmorType=="SinBlueArmor"){armor.amount=200;armor.maxamount=200;item.prot=95;}
+				If(armor.ArmorType=="SinGreenArmor"){armor.amount=100;armor.maxamount=100;}
+				If(armor.ArmorType=="SinBlueArmor"){armor.amount=200;armor.maxamount=200;}
 			}
 		}
 	}
-	//	WIP Code.
-	/*
+	//	Maybe WorldThingSpawned() isn't required. Who knows. I'll keep it just in case.
+	Override void WorldThingSpawned(WorldEvent e){
+		If(e.Thing is "SinItem"){
+			let item = SinItem(e.Thing);
+			If(cvar.GetCVar('sintweaks_stackablehealth').getbool()){
+				If(item is "SinPotionGreen"){item.stack=1;item.maxamount=4;}
+				If(item is "SinPotionRed"){item.stack=1;item.maxamount=4;}
+				If(item is "SinPotionBlue"){item.stack=1;item.maxamount=4;}
+				If(item is "SinPotionYellow"){item.stack=1;item.maxamount=4;}
+				If(item is "SinStimpack"){item.stack=1;item.maxamount=4;}
+				If(item is "SinMedikit"){item.stack=1;item.maxamount=4;}
+				If(item is "SinBerserk"){item.stack=1;item.maxamount=4;}
+			}
+			If(cvar.GetCVar('sintweaks_stackablegrenades').getbool()){
+				If(item is "SinGrenade"){item.stack=1;item.maxamount=4;}
+				If(item is "SinProxMine"){item.stack=1;item.maxamount=4;}
+				If(item is "SinFlashbang"){item.stack=1;item.maxamount=4;}
+				If(item is "SinAcidRipper"){item.stack=1;item.maxamount=4;}
+			}
+			If(cvar.GetCVar('sintweaks_armor').getbool()){
+				//If(item is "SinGreenArmor"){item.amount=100;item.maxamount=100;item.prot=75;}
+				//If(item is "SinBlueArmor"){item.amount=200;item.maxamount=200;item.prot=95;}
+				If(item is "SinGreenArmor"){item.amount=100;item.maxamount=100;}
+				If(item is "SinBlueArmor"){item.amount=200;item.maxamount=200;}
+			}
+		}
+	}
 	Override void WorldTick(){
 		For(int i=0; i<MAXPLAYERS; i++){
 			If(!playeringame[i] || !players[i].mo){Continue;}
@@ -150,34 +153,31 @@ Class SinTweaksLoadoutReplacementHandler : EventHandler{
 			If(!invman){Return;}
 			For(let i=0; i<invman.items.Size(); i++){
 				let item = SinItem(invman.items[i]);
-				If(cvar.GetCVar('sintweaks_armor').getbool()){
-				If(item is "SinRocketLauncher"){SwapSinItems("SinTweaksRocketLauncher",item,invman,i);}
-				//	Very buggy..
-				//
-				Else If(item is "SinPotionGreen"){SwapSinItems("SinPotionGreenStackable",item,invman,i);}
-				Else If(item is "SinPotionRed"){SwapSinItems("SinPotionRedStackable",item,invman,i);}
-				Else If(item is "SinPotionBlue"){SwapSinItems("SinPotionBlueStackable",item,invman,i);}
-				Else If(item is "SinStimpack"){SwapSinItems("SinStimpackStackable",item,invman,i);}
-				Else If(item is "SinMedikit"){SwapSinItems("SinMedikitStackable",item,invman,i);}
-				Else If(item is "SinBerserk"){SwapSinItems("SinBerserkStackable",item,invman,i);}
-				Else If(item is "SinGrenade"){SwapSinItems("SinGrenadeStackable",item,invman,i);}
-				Else If(item is "SinFlashbang"){SwapSinItems("SinFlashbangStackable",item,invman,i);}
-				Else If(item is "SinProxMine"){SwapSinItems("SinProxMineStackable",item,invman,i);}
-				Else If(item is "SinAcidRipper"){SwapSinItems("SinAcidRipperStackable",item,invman,i);}
-				//
-				If(cvar.GetCVar('sintweaks_armor').getbool()){
-					If(item is "SinGreenArmor"){SwapSinItems("SinGreenArmor2",item,invman,i);}
-					Else If(item is "SinBlueArmor"){SwapSinItems("SinBlueArmor2",item,invman,i);}
+				If(cvar.GetCVar('sintweaks_stackablehealth').getbool()){
+					If(item is "SinPotionGreen"){item.stack=1;item.maxamount=4;item.health=5;}
+					If(item is "SinPotionRed"){item.stack=1;item.maxamount=4;}
+					If(item is "SinPotionBlue"){item.stack=1;item.maxamount=4;}
+					If(item is "SinPotionYellow"){item.stack=1;item.maxamount=4;}
+					If(item is "SinStimpack"){item.stack=1;item.maxamount=4;}
+					If(item is "SinMedikit"){item.stack=1;item.maxamount=4;}
+					If(item is "SinBerserk"){item.stack=1;item.maxamount=4;}
 				}
-			}
-			let armor = BasicArmor(players[i].mo.FindInventory("BasicArmor"));
-			If(cvar.GetCVar('sintweaks_armor').getbool()){
-				If(armor.ArmorType=="SinGreenArmor"){SwapSinArmor("SinGreenArmor2",armor);}
-				Else If(armor.ArmorType=="SinBlueArmor"){SwapSinArmor("SinBlueArmor2",armor);}
+				If(cvar.GetCVar('sintweaks_stackablegrenades').getbool()){
+					If(item is "SinGrenade"){item.stack=1;item.maxamount=4;}
+					If(item is "SinProxMine"){item.stack=1;item.maxamount=4;}
+					If(item is "SinFlashbang"){item.stack=1;item.maxamount=4;}
+					If(item is "SinAcidRipper"){item.stack=1;item.maxamount=4;}
+				}
+				If(cvar.GetCVar('sintweaks_armor').getbool()){
+					//If(item is "SinGreenArmor"){item.maxamount=100;item.prot=75;}
+					//If(item is "SinBlueArmor"){item.maxamount=200;item.prot=95;}
+					If(item is "SinGreenArmor"){item.maxamount=100;}
+					If(item is "SinBlueArmor"){item.maxamount=200;}
+				}
 			}
 		}
 	}
-	*/
+	//	I may not need these anymore. I don't know.
 	void SwapSinItems(Class<SinItem> newitem, SinItem olditem, SinInvManager invman, int index){
 		invman.items.Delete(index);
 		If(olditem.big){invman.items.Delete(index);}

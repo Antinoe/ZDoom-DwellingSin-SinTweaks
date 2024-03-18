@@ -2,8 +2,6 @@ version "4.0"
 
 #include "zscript/sintweaks/handlers.zs"
 #include "zscript/sintweaks/puffs.zs"
-#include "zscript/sintweaks/items/stacking.zs"
 #include "zscript/sintweaks/items/health.zs"
-#include "zscript/sintweaks/items/armor.zs"
 #include "zscript/sintweaks/items/ammo.zs"
 #include "zscript/sintweaks/items/weapons.zs"
