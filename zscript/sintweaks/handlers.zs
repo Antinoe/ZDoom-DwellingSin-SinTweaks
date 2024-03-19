@@ -123,6 +123,7 @@ Class SinTweaksLoadoutReplacementHandler : EventHandler{
 	Override void WorldThingSpawned(WorldEvent e){
 		If(e.Thing is "SinItem"){
 			let item = SinItem(e.Thing);
+			let armor = SinArmor(e.Thing);
 			If(cvar.GetCVar('sintweaks_stackablehealth').getbool()){
 				If(item is "SinPotionGreen"){item.stack=1;item.maxamount=4;}
 				If(item is "SinPotionRed"){item.stack=1;item.maxamount=4;}
@@ -139,10 +140,10 @@ Class SinTweaksLoadoutReplacementHandler : EventHandler{
 				If(item is "SinAcidRipper"){item.stack=1;item.maxamount=4;}
 			}
 			If(cvar.GetCVar('sintweaks_armor').getbool()){
-				//If(item is "SinGreenArmor"){item.amount=100;item.maxamount=100;item.prot=75;}
-				//If(item is "SinBlueArmor"){item.amount=200;item.maxamount=200;item.prot=95;}
-				If(item is "SinGreenArmor"){item.amount=100;item.maxamount=100;}
-				If(item is "SinBlueArmor"){item.amount=200;item.maxamount=200;}
+				If(armor is "SinGreenArmor"){armor.amount=100;armor.maxamount=100;armor.prot=75;}
+				If(armor is "SinBlueArmor"){armor.amount=200;armor.maxamount=200;armor.prot=95;}
+				//If(armor is "SinGreenArmor"){armor.amount=100;armor.maxamount=100;}
+				//If(armor is "SinBlueArmor"){armor.amount=200;armor.maxamount=200;}
 			}
 		}
 	}
@@ -153,6 +154,7 @@ Class SinTweaksLoadoutReplacementHandler : EventHandler{
 			If(!invman){Return;}
 			For(let i=0; i<invman.items.Size(); i++){
 				let item = SinItem(invman.items[i]);
+				let armor = SinArmor(invman.items[i]);
 				If(cvar.GetCVar('sintweaks_stackablehealth').getbool()){
 					If(item is "SinPotionGreen"){item.stack=1;item.maxamount=4;item.health=5;}
 					If(item is "SinPotionRed"){item.stack=1;item.maxamount=4;}
@@ -169,10 +171,10 @@ Class SinTweaksLoadoutReplacementHandler : EventHandler{
 					If(item is "SinAcidRipper"){item.stack=1;item.maxamount=4;}
 				}
 				If(cvar.GetCVar('sintweaks_armor').getbool()){
-					//If(item is "SinGreenArmor"){item.maxamount=100;item.prot=75;}
-					//If(item is "SinBlueArmor"){item.maxamount=200;item.prot=95;}
-					If(item is "SinGreenArmor"){item.maxamount=100;}
-					If(item is "SinBlueArmor"){item.maxamount=200;}
+					If(armor is "SinGreenArmor"){armor.maxamount=100;armor.prot=75;}
+					If(armor is "SinBlueArmor"){armor.maxamount=200;armor.prot=95;}
+					//If(armor is "SinGreenArmor"){armor.maxamount=100;}
+					//If(armor is "SinBlueArmor"){armor.maxamount=200;}
 				}
 			}
 		}
