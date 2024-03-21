@@ -47,6 +47,7 @@ Class SinTweaksGeneralHandler : EventHandler{
 Class SinTweaksPropertyHandler : EventHandler{
 	//	Maybe WorldThingSpawned() isn't required. Who knows. I'll keep it just in case.
 	Override void WorldThingSpawned(WorldEvent e){
+		//	Items
 		If(e.Thing is "SinItem"){
 			let item = SinItem(e.Thing);
 			let armor = SinArmor(e.Thing);
@@ -70,6 +71,14 @@ Class SinTweaksPropertyHandler : EventHandler{
 				If(armor is "SinBlueArmor"){armor.amount=200;armor.maxamount=200;armor.prot=95;}
 				//If(armor is "SinGreenArmor"){armor.amount=100;armor.maxamount=100;}
 				//If(armor is "SinBlueArmor"){armor.amount=200;armor.maxamount=200;}
+			}
+		}
+		//	Grenade Fuses
+		If(e.Thing is "SinGrenadeBase"){
+			let proj = SinGrenadeBase(e.Thing);
+			If(cvar.GetCVar('sintweaks_customfuse').getbool()){
+				If(proj is "SinGrenadeThrown"){proj.fusemax=sintweaks_fusegrenade;}
+				If(proj is "SinFlashBangThrown"){proj.fusemax=sintweaks_fuseflashbang;}
 			}
 		}
 	}

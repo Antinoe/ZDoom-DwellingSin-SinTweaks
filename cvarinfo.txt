@@ -29,6 +29,9 @@ server bool sintweaks_armor = false;
 server bool sintweaks_brutaldamage = true;
 server bool sintweaks_rocketlauncher = false;
 server bool sintweaks_vanillaweapons = false;
+server bool sintweaks_customfuse = false;
+server int sintweaks_fusegrenade = 35;
+server int sintweaks_fuseflashbang = 35;
 
 //
 //	Ammo

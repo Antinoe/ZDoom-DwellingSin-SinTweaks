@@ -1,7 +1,11 @@
-
+AddOptionMenu "SinOptions" after "SinOptionsScarcity"{
+	Submenu "Sin Tweaks","SinTweaksOptions"
+}
+/*
 AddOptionMenu "OptionsMenu"{
 	Submenu "Sin Tweaks","SinTweaksOptions"
 }
+*/
 OptionMenu "SinTweaksOptions"{
 	Title "Sin Tweaks"
 	Submenu "General","SinTweaksOptionsGeneral"
@@ -64,6 +68,11 @@ OptionMenu "SinTweaksOptionsWeapons"{
 	StaticText "Sin Tweaks' Rocket Launcher spawns alongside the Chaingun."
 	StaticText "Turn this on in maps that expect you to use explosives, as the Chaingun sometimes isn't enough."
 	StaticText "$SINOPT_DEFOFF",1
+	StaticText ""
+	Option "Custom Fuse Times","sintweaks_customfuse","OnOff"
+	StaticText "Enable to choose how long the fuses last on Grenades and Flashbangs."
+	Slider "Grenade Fuse","sintweaks_fusegrenade",5,140,5,0
+	Slider "Flashbang Fuse","sintweaks_fuseflashbang",5,140,5,0
 }
 OptionMenu "SinTweaksOptionsAmmo"{
 	Option "Less Lethal Rounds","sintweaks_lesslethal","OnOff"
