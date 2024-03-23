@@ -75,6 +75,18 @@ OptionMenu "SinTweaksOptionsWeapons"{
 	Slider "Flashbang Fuse","sintweaks_fuseflashbang",5,140,5,0
 }
 OptionMenu "SinTweaksOptionsAmmo"{
+	Option "Ammo Damage Manipulation","sintweaks_ammo","OnOff"
+	StaticText "^ THIS DOESN'T WORK YET."
+	StaticText ""
+	Slider "Pistol Ammo Normal","sintweaks_damage_pistolnormal",1,50,5,0
+	Slider "Pistol Ammo Power","sintweaks_damage_pistolpower",1,50,5,0
+	Slider "Buckshot","sintweaks_damage_buckshot",1,50,5,0
+	Slider "Birdshot","sintweaks_damage_birdshot",1,50,5,0
+	Slider "Slug","sintweaks_damage_slug",1,50,5,0
+	Slider "Rifle Ammo Normal","sintweaks_damage_riflenormal",1,50,5,0
+	Slider "Ancient Ammo","sintweaks_damage_ancient",1,50,5,0
+	StaticText "(Default: 10,20,8,1,80,7,8)"
+	StaticText ""
 	Option "Less Lethal Rounds","sintweaks_lesslethal","OnOff"
 	StaticText "Rubber rounds and bean bag shells."
 	StaticText "$SINOPT_DEFOFF",1

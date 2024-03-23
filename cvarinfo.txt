@@ -36,6 +36,14 @@ server int sintweaks_fuseflashbang = 35;
 //
 //	Ammo
 //
+server bool sintweaks_ammo = false;
+server int sintweaks_damage_pistolnormal = 10;
+server int sintweaks_damage_pistolpower = 20;
+server int sintweaks_damage_buckshot = 8;
+server int sintweaks_damage_birdshot = 1;
+server int sintweaks_damage_slug = 80;
+server int sintweaks_damage_riflenormal = 7;
+server int sintweaks_damage_ancient = 8;
 server bool sintweaks_lesslethal = false;
 server bool sintweaks_incendiary = false;
 server bool sintweaks_nolooseammo = false;

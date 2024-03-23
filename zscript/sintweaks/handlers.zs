@@ -51,6 +51,7 @@ Class SinTweaksPropertyHandler : EventHandler{
 		If(e.Thing is "SinItem"){
 			let item = SinItem(e.Thing);
 			let armor = SinArmor(e.Thing);
+			let ammo = SinAmmo(e.Thing);
 			If(cvar.GetCVar('sintweaks_stackablehealth').getbool()){
 				If(item is "SinPotionGreen"){item.stack=1;item.maxamount=4;}
 				If(item is "SinPotionRed"){item.stack=1;item.maxamount=4;}
@@ -72,6 +73,15 @@ Class SinTweaksPropertyHandler : EventHandler{
 				//If(armor is "SinGreenArmor"){armor.amount=100;armor.maxamount=100;}
 				//If(armor is "SinBlueArmor"){armor.amount=200;armor.maxamount=200;}
 			}
+			If(cvar.GetCVar('sintweaks_ammo').getbool()){
+				If(ammo is "SinPistolAmmoNormal"){ammo.scandmg=sintweaks_damage_pistolnormal;}
+				If(ammo is "SinPistolAmmoPower"){ammo.scandmg=sintweaks_damage_pistolpower;}
+				If(ammo is "SinShellBuckshot"){ammo.scandmg=sintweaks_damage_buckshot;}
+				If(ammo is "SinShellBirdshot"){ammo.scandmg=sintweaks_damage_birdshot;}
+				If(ammo is "SinShellSlug"){ammo.scandmg=sintweaks_damage_slug;}
+				If(ammo is "SinRifleAmmoNormal"){ammo.scandmg=sintweaks_damage_riflenormal;}
+				If(ammo is "SinAncientAmmo"){ammo.scandmg=sintweaks_damage_ancient;}
+			}
 		}
 		//	Grenade Fuses
 		If(e.Thing is "SinGrenadeBase"){
@@ -90,6 +100,7 @@ Class SinTweaksPropertyHandler : EventHandler{
 			For(let i=0; i<invman.items.Size(); i++){
 				let item = SinItem(invman.items[i]);
 				let armor = SinArmor(invman.items[i]);
+				let ammo = SinAmmo(invman.items[i]);
 				If(cvar.GetCVar('sintweaks_stackablehealth').getbool()){
 					If(item is "SinPotionGreen"){item.stack=1;item.maxamount=4;item.health=5;}
 					If(item is "SinPotionRed"){item.stack=1;item.maxamount=4;}
@@ -110,6 +121,15 @@ Class SinTweaksPropertyHandler : EventHandler{
 					If(armor is "SinBlueArmor"){armor.maxamount=200;armor.prot=95;}
 					//If(armor is "SinGreenArmor"){armor.maxamount=100;}
 					//If(armor is "SinBlueArmor"){armor.maxamount=200;}
+				}
+				If(cvar.GetCVar('sintweaks_ammo').getbool()){
+					If(ammo is "SinPistolAmmoNormal"){ammo.scandmg=sintweaks_damage_pistolnormal;}
+					If(ammo is "SinPistolAmmoPower"){ammo.scandmg=sintweaks_damage_pistolpower;}
+					If(ammo is "SinShellBuckshot"){ammo.scandmg=sintweaks_damage_buckshot;}
+					If(ammo is "SinShellBirdshot"){ammo.scandmg=sintweaks_damage_birdshot;}
+					If(ammo is "SinShellSlug"){ammo.scandmg=sintweaks_damage_slug;}
+					If(ammo is "SinRifleAmmoNormal"){ammo.scandmg=sintweaks_damage_riflenormal;}
+					If(ammo is "SinAncientAmmo"){ammo.scandmg=sintweaks_damage_ancient;}
 				}
 			}
 		}
