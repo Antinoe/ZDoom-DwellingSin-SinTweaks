@@ -1,4 +1,12 @@
 
+Class SinRecipePistolAmmoPower2 : SinRecipe{
+	Default{
+		SinRecipe.Ingredients "SinPistolAmmoNormal", "SinGunpowder1";
+		SinRecipe.IngredientAmounts 10, 1;
+		SinRecipe.Result "SinPistolAmmoPower", 10;
+	}
+}
+
 Class SinPistolAmmoRubber : SinAmmo{
 	Default{
 		Inventory.Icon "PBULA0";

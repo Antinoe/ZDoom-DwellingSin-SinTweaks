@@ -1,41 +1,30 @@
 
-//
 //	General
-//
 server bool sintweaks_dropresources = false;
 server bool sintweaks_replaceammo = false;
 
-//
 //	Stacking
-//
 server bool sintweaks_stackablehealth = false;
 server bool sintweaks_stackablegrenades = false;
 
-//
 //	Health
-//
 server bool sintweaks_bluepotion = false;
 server bool sintweaks_berserk = false;
 server bool sintweaks_totem = false;
 
-//
 //	Armor
-//
 server bool sintweaks_armor = false;
 
-//
 //	Weapons
-//
 server bool sintweaks_brutaldamage = true;
+server int sintweaks_weaponstyle = 0;
 server bool sintweaks_rocketlauncher = false;
 server bool sintweaks_vanillaweapons = false;
 server bool sintweaks_customfuse = false;
 server int sintweaks_fusegrenade = 35;
 server int sintweaks_fuseflashbang = 35;
 
-//
 //	Ammo
-//
 server bool sintweaks_ammo = false;
 server int sintweaks_damage_pistolnormal = 10;
 server int sintweaks_damage_pistolpower = 20;

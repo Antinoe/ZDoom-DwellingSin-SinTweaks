@@ -58,6 +58,11 @@ OptionMenu "SinTweaksOptionsWeapons"{
 	StaticText "and Dwelling Sin's Rocket Launcher will be turned into a Nuke Launcher."
 	StaticText "$SINOPT_DEFON",1
 	StaticText ""
+	Slider "Weapon Style","sintweaks_weaponstyle",0,2,1,0
+	StaticText "(0: Dwelling Sin)"
+	StaticText "(1: Brutal Doom)"
+	StaticText "(2: Project Malice)"
+	StaticText ""
 	Option "Alternate Rocket Launcher","sintweaks_rocketlauncher","OnOff"
 	StaticText "Reloadable but less powerful Rocket Launcher that replaces DSin's original."
 	StaticText "It also spawns with Rocket Boxes."

@@ -1,7 +1,4 @@
 
-//
-//	General
-//
 Class SinTweaksGeneralHandler : EventHandler{
 	Override void WorldThingSpawned(WorldEvent e){
 		If(e.Thing is "SinItem"){
@@ -23,16 +20,13 @@ Class SinTweaksGeneralHandler : EventHandler{
 		}
 	}
 	//	Took this blueprint from Nashgore: Vengeance Edition.
-	Override void WorldThingDied(WorldEvent e)
-	{
-		If (!e.Thing) return;
+	Override void WorldThingDied(WorldEvent e){
+		If(!e.Thing) return;
 		DoThingDie(e.Thing);
 	}
-	void DoThingDie(Actor mo)
-	{
+	void DoThingDie(Actor mo){
 		bool isMonster = mo.bIsMonster;
-		If (isMonster)
-		{
+		If(isMonster){
 			Vector3 offset = (cos(mo.angle)*32,sin(mo.angle)*32,0);
 			If(!random(0,3)){
 				If(!random(0,3)){mo.Spawn("HealthBonus",mo.pos+offset,true);}
@@ -42,12 +36,43 @@ Class SinTweaksGeneralHandler : EventHandler{
 	}
 }
 //
-//	Property Modification
+//	Hotkeys
+//	NEED TO FIND A WAY TO CHECK FOR NUMERICAL KEY PRESSES (1-4).
 //
+Class SinTweaksHotkeyHandler : EventHandler{
+	/*
+	//	NEED A PROPER HOOK TO OVERRIDE.
+	Override bool InputProcess(InputEvent e){
+		if(){
+			//	JAREWILL'S NOTES
+			//	Only execute this code if the item exists
+			If(invman.items.Size() > 0){
+				//	Will get the pointer to the specified item, for example if x is 0, then it's the first item
+				let item = invman.items[0];
+				//	Execute this code if the item is a weapon
+				If(item is "SinWeapon"){
+				//	If the item is equipped, unequip it
+					If(invman.equipped == 0){invman.equipped = -1;}
+					//	Otherwise equip it
+					Else{invman.equipped = 0;}
+				}
+			}
+		}
+		else if(){
+			If(invman.items.Size() > 1){
+				let item = invman.items[1];
+				If(item is "SinWeapon"){
+					If(invman.equipped == 1){invman.equipped = -1;}
+					Else{invman.equipped = 1;}
+				}
+			}
+		}
+	}
+	*/
+}
 Class SinTweaksPropertyHandler : EventHandler{
 	//	Maybe WorldThingSpawned() isn't required. Who knows. I'll keep it just in case.
 	Override void WorldThingSpawned(WorldEvent e){
-		//	Items
 		If(e.Thing is "SinItem"){
 			let item = SinItem(e.Thing);
 			let armor = SinArmor(e.Thing);
@@ -83,7 +108,6 @@ Class SinTweaksPropertyHandler : EventHandler{
 				If(ammo is "SinAncientAmmo"){ammo.scandmg=sintweaks_damage_ancient;}
 			}
 		}
-		//	Grenade Fuses
 		If(e.Thing is "SinGrenadeBase"){
 			let proj = SinGrenadeBase(e.Thing);
 			If(cvar.GetCVar('sintweaks_customfuse').getbool()){
@@ -135,34 +159,59 @@ Class SinTweaksPropertyHandler : EventHandler{
 		}
 	}
 }
-//
-//	Item Replacement
-//
+//	Doesn't work..
+/*
+Class SinTweaksWeaponStyleHandler : EventHandler{
+	Override void WorldThingSpawned(WorldEvent e){
+		If(e.Thing is "SinItem"){
+			let item = SinItem(e.Thing);
+			let armor = SinArmor(e.Thing);
+			let weap = SinWeapon(e.Thing);
+			let ammo = SinAmmo(e.Thing);
+			If(sintweaks_weaponstyle == 1){
+				If(ammo is "SinPistolAmmoNormal"){
+					ammo.attacksound = "weapons/pistol";
+					ammo.attacktype = 1;
+					ammo.proj = "ZombieManTracer";
+					ammo.casetype = "RifleCaseSpawn";
+				}
+			}
+		}
+	}
+	Override void WorldTick(){
+		For(int i=0; i<MAXPLAYERS; i++){
+			If(!playeringame[i] || !players[i].mo){Continue;}
+			let invman = SinInvManager(players[i].mo.FindInventory("SinInvManager"));
+			If(!invman){Return;}
+			For(let i=0; i<invman.items.Size(); i++){
+				let item = SinItem(invman.items[i]);
+				let armor = SinArmor(invman.items[i]);
+				let weap = SinWeapon(invman.items[i]);
+				let ammo = SinAmmo(invman.items[i]);
+				If(sintweaks_weaponstyle == 1){
+					If(ammo is "SinPistolAmmoNormal"){
+						ammo.attacksound = "weapons/pistol";
+						ammo.attacktype = 1;
+						ammo.proj = "ZombieManTracer";
+						ammo.casetype = "RifleCaseSpawn";
+					}
+				}
+			}
+		}
+	}
+}
+*/
+
 Class SinTweaksReplacementHandler : EventHandler{
 	Override void CheckReplacement(ReplaceEvent e){
-		//
-		//	General
-		//
 		If(e.Replacee is "Clip"){If(cvar.GetCVar('sintweaks_replaceammo').getbool())e.Replacement="HealthBonus";}
 		If(e.Replacee is "Shell"){If(cvar.GetCVar('sintweaks_replaceammo').getbool())e.Replacement="ArmorBonus";}
-
-		//
-		//	Health
-		//
 		If(e.Replacee is "HealthBonus"){If(cvar.GetCVar('sintweaks_bluepotion').getbool()&&!random(0,3))e.Replacement="SinPotionBlue";}
 		If(e.Replacee is "Stimpack"){If(cvar.GetCVar('sintweaks_bluepotion').getbool()&&!random(0,3))e.Replacement="SinPotionBlue";}
 		If(e.Replacee is "Medikit"){If(cvar.GetCVar('sintweaks_bluepotion').getbool()&&!random(0,3))e.Replacement="SinPotionBlue";}
 		If(e.Replacee is "Berserk"){If(cvar.GetCVar('sintweaks_bluepotion').getbool()&&!random(0,3))e.Replacement="SinPotionYellow";}
 		If(e.Replacee is "BFG9000"){If(cvar.GetCVar('sintweaks_totem').getbool()&&!random(0,3))e.Replacement="SinTotem";}
-
-		//
-		//	Weapons
-		//
 		If(e.Replacee is "SinRocketLauncher"){If(cvar.GetCVar('sintweaks_rocketlauncher').getbool())e.Replacement="SinTweaksRocketLauncher";}
-
-		//
-		//	Ammo
-		//
 		If(e.Replacee is "Clip"){If(cvar.GetCVar('sintweaks_lesslethal').getbool()&&!random(0,3))e.Replacement="SinPistolAmmoRubber";}
 		If(e.Replacee is "ClipBox"){If(cvar.GetCVar('sintweaks_lesslethal').getbool()&&!random(0,3))e.Replacement="SinPistolAmmoRubber";}
 		If(e.Replacee is "Shell"){If(cvar.GetCVar('sintweaks_lesslethal').getbool()&&!random(0,3))e.Replacement="SinShellBeanBag";}
@@ -173,10 +222,6 @@ Class SinTweaksReplacementHandler : EventHandler{
 		If(e.Replacee is "SinShellSlug"){If(cvar.GetCVar('sintweaks_nolooseammo').getbool())e.Replacement="SinShellBox";}
 		If(e.Replacee is "SinRifleAmmoNormal"){If(cvar.GetCVar('sintweaks_nolooseammo').getbool())e.Replacement="SinRifleBox";}
 		If(e.Replacee is "SinPistolAmmoNormal"){If(cvar.GetCVar('sintweaks_onlypowerrounds').getbool())e.Replacement="SinPistolAmmoPower";}
-
-		//
-		//	Brutal Damage Types
-		//
 		//	Thanks for this class checking method, Agent Ash.
 		If (cvar.GetCVar('sintweaks_brutaldamage').getbool() && e.Replacee == "Rocket"){
 			name clsname = "Rocket2";
@@ -188,6 +233,9 @@ Class SinTweaksReplacementHandler : EventHandler{
 			Class<Actor> cls = clsname;
 			If (cls){e.Replacement = cls;}
 		}
+		//	So messy..
+		//	I should just use `WorldThingSpawned()` to change the properties of these classes.
+		//	..Nevermind. DamageType can't be changed in an Event Handler.
 		If(e.Replacee is "SinPistolPuff"){If(cvar.GetCVar('sintweaks_brutaldamage').getbool())e.Replacement="SinPistolPuff2";}
 		If(e.Replacee is "SinBuckshotPuff"){If(cvar.GetCVar('sintweaks_brutaldamage').getbool())e.Replacement="SinBuckshotPuff2";}
 		If(e.Replacee is "SinBirdshotPuff"){If(cvar.GetCVar('sintweaks_brutaldamage').getbool())e.Replacement="SinBirdshotPuff2";}
@@ -201,9 +249,7 @@ Class SinTweaksReplacementHandler : EventHandler{
 	}
 }
 
-//
-//	Loadout Item Replacement (Thanks for this, Jarewill.)
-//
+// (Thanks for this, Jarewill.)
 Class SinTweaksLoadoutHandler : EventHandler{
 	Override void PlayerEntered(PlayerEvent e){
 		let invman = SinInvManager(players[e.PlayerNumber].mo.FindInventory("SinInvManager"));
