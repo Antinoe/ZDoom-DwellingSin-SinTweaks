@@ -1,7 +1,0 @@
-
-// Add Keys
-addKeySection "Sin Tweaks" "SinTweaks"
-addMenuKey    "Weapon Slot 1"                 "WeaponSlot1"
-
-// Keys
-alias D2JKsMod_ButtsKey "netevent D2JKsMod_ButtsKeyEvent"
