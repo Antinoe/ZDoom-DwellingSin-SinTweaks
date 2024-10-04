@@ -39,7 +39,7 @@ Class SinTweaksHotkeyHandler : EventHandler{
 			let invman = SinInvManager(players[i].mo.FindInventory("SinInvManager"));
 			If(!invman){Return 0;}
 			let item = SinItem(invman.items[0]);
-			If(e.Type != InputEvent.Type_KeyDown){Return 0;}
+			If(e.Type != InputEvent.Type_KeyDown || !cvar.GetCVar("sintweaks_hotkeys").getbool()){Return 0;}
 			If(bindings.GetBinding(e.KeyScan) ~== "slot 1"){
 				EventHandler.SendNetworkEvent("Equip",0);
 				Return 1;

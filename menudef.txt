@@ -12,26 +12,6 @@ OptionMenu "SinTweaksOptions"{
 	Submenu "Ammo","SinTweaksOptionsAmmo"
 	Submenu "Redundant","SinTweaksOptionsRedundant"
 }
-OptionMenu "SinTweaksOptionsRedundant"{
-	Title "Redundant Features"
-	StaticText "These are options that I'll consider removing."
-	StaticText ""
-	Option "Blue Potion","sintweaks_bluepotion","OnOff"
-	StaticText "Enables the Blue Potion, a tincture that reduces damage when ingested."
-	StaticText "$SINOPT_DEFOFF",1
-	StaticText ""
-	Option "Totem","sintweaks_totem","OnOff"
-	StaticText "A rare totem that sometimes replaces the BFG."
-	StaticText "$SINOPT_DEFOFF",1
-	StaticText ""
-	Option "Less Lethal Rounds","sintweaks_lesslethal","OnOff"
-	StaticText "Rubber rounds and bean bag shells."
-	StaticText "$SINOPT_DEFOFF",1
-	StaticText ""
-	Option "Incendiary Shells","sintweaks_incendiary","OnOff"
-	StaticText "Dragon's Breath shells."
-	StaticText "$SINOPT_DEFOFF",1
-}
 OptionMenu "SinTweaksOptionsGeneral"{
 	Option "Monsters Drops Resources","sintweaks_dropresources","OnOff"
 	StaticText "Monsters sometimes drop resources upon death, similar to RE4 and RE8."
@@ -39,6 +19,11 @@ OptionMenu "SinTweaksOptionsGeneral"{
 	StaticText ""
 	Option "Ammo Replacement","sintweaks_replaceammo","OnOff"
 	StaticText "Ammunition is replaced with resources."
+	StaticText "$SINOPT_DEFOFF",1
+	StaticText ""
+	Option "Weapon Swapping","sintweaks_hotkeys","OnOff"
+	StaticText "Should pressing Weapon Keys 1-9 equip the weapon in the associated slot?"
+	StaticText "WARNING: ATTEMPTING TO EQUIP AN EMPTY SLOT WILL CAUSE A VM ABORT."
 	StaticText "$SINOPT_DEFOFF",1
 }
 OptionMenu "SinTweaksOptionsStacking"{
@@ -92,5 +77,25 @@ OptionMenu "SinTweaksOptionsAmmo"{
 	Option "Overpressured Rounds Only","sintweaks_onlypowerrounds","OnOff"
 	StaticText "Other than magazines, Overpressured Rounds will replace all loose Regular Rounds."
 	StaticText "(This will override the Pistol Box spawn of `No Loose Ammo`.)"
+	StaticText "$SINOPT_DEFOFF",1
+}
+OptionMenu "SinTweaksOptionsRedundant"{
+	Title "Redundant Features"
+	StaticText "These are options that I'll consider removing."
+	StaticText ""
+	Option "Blue Potion","sintweaks_bluepotion","OnOff"
+	StaticText "Enables the Blue Potion, a tincture that reduces damage when ingested."
+	StaticText "$SINOPT_DEFOFF",1
+	StaticText ""
+	Option "Totem","sintweaks_totem","OnOff"
+	StaticText "A rare totem that sometimes replaces the BFG."
+	StaticText "$SINOPT_DEFOFF",1
+	StaticText ""
+	Option "Less Lethal Rounds","sintweaks_lesslethal","OnOff"
+	StaticText "Rubber rounds and bean bag shells."
+	StaticText "$SINOPT_DEFOFF",1
+	StaticText ""
+	Option "Incendiary Shells","sintweaks_incendiary","OnOff"
+	StaticText "Dragon's Breath shells."
 	StaticText "$SINOPT_DEFOFF",1
 }
