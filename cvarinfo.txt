@@ -2,7 +2,7 @@
 //	General
 server bool sintweaks_dropresources = false;
 server bool sintweaks_replaceammo = false;
-server bool sintweaks_hotkeys = false;
+server bool sintweaks_hotkeys = true;
 
 //	Stacking
 server bool sintweaks_stackablehealth = false;
