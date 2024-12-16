@@ -1,0 +1,10 @@
+version "4.0"
+
+#include "zscript/sintweaks/puffs.zs"
+#include "zscript/sintweaks/items/health.zs"
+#include "zscript/sintweaks/items/ammo.zs"
+#include "zscript/sintweaks/items/weapons.zs"
+#include "zscript/sintweaks/handlers/general.zs"
+#include "zscript/sintweaks/handlers/hotkeys.zs"
+#include "zscript/sintweaks/handlers/properties.zs"
+#include "zscript/sintweaks/handlers/replacement.zs"

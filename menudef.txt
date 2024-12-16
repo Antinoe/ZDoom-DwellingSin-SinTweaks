@@ -4,98 +4,12 @@ AddOptionMenu "SinOptions" after "SinOptionsScarcity"{
 }
 OptionMenu "SinTweaksOptions"{
 	Title "Sin Tweaks"
-	Submenu "General","SinTweaksOptionsGeneral"
-	Submenu "Stacking","SinTweaksOptionsStacking"
-	Submenu "Health","SinTweaksOptionsHealth"
-	Submenu "Armor","SinTweaksOptionsArmor"
-	Submenu "Weapons","SinTweaksOptionsWeapons"
-	Submenu "Ammo","SinTweaksOptionsAmmo"
-	Submenu "Redundant","SinTweaksOptionsRedundant"
-}
-OptionMenu "SinTweaksOptionsGeneral"{
-	Option "Monsters Drops Resources","sintweaks_dropresources","OnOff"
+	Option "Monster Loot","sintweaks_monsterloot","OnOff"
 	StaticText "Monsters sometimes drop resources upon death, similar to RE4 and RE8."
-	StaticText "$SINOPT_DEFOFF",1
-	StaticText ""
-	Option "Ammo Replacement","sintweaks_replaceammo","OnOff"
-	StaticText "Ammunition is replaced with resources."
 	StaticText "$SINOPT_DEFOFF",1
 	StaticText ""
 	Option "Weapon Swapping","sintweaks_hotkeys","OnOff"
 	StaticText "Should pressing Weapon Keys 1-9 equip the weapon in the associated slot?"
 	StaticText "WARNING: ATTEMPTING TO EQUIP AN EMPTY SLOT WILL CAUSE A VM ABORT."
-	StaticText "$SINOPT_DEFOFF",1
-}
-OptionMenu "SinTweaksOptionsStacking"{
-	Option "Stackable Health Items","sintweaks_stackablehealth","OnOff"
-	StaticText "Potions, Stimpacks and Medikits are all made stackable."
-	StaticText "To compensate for the lack of identical-item combining, the Green Potion heals 5 HP instead of 2."
-	StaticText "$SINOPT_DEFOFF",1
-	StaticText ""
-	Option "Stackable Grenades","sintweaks_stackablegrenades","OnOff"
-	StaticText "Much like in modern Resident Evil titles, all throwables now stack to 3 instead of 1."
-	StaticText "$SINOPT_DEFOFF",1
-}
-OptionMenu "SinTweaksOptionsHealth"{
-}
-OptionMenu "SinTweaksOptionsArmor"{
-	Option "Armor Rebalancing","sintweaks_armor","OnOff"
-	StaticText "Green and Blue Armor are made more protective."
-	StaticText "G: (33% -> 75%)"
-	StaticText "B: (50% -> 95%)"
-	StaticText "Additionally, Blue Armor's durability is bumped up from 100 to 200."
-	StaticText "$SINOPT_DEFOFF",1
-}
-OptionMenu "SinTweaksOptionsWeapons"{
-	Option "Brutal Damage Types","sintweaks_brutaldamage","OnOff"
-	StaticText "Enables compatibility with Brutal Doom monsters by giving certain puffs and projectiles matching damage types."
-	StaticText "Sin Tweaks' Rocket Launcher will fire Brutal Doom's rockets,"
-	StaticText "and Dwelling Sin's Rocket Launcher will be turned into a Nuke Launcher."
-	StaticText "$SINOPT_DEFON",1
-	StaticText ""
-	Option "Alternate Rocket Launcher","sintweaks_rocketlauncher","OnOff"
-	StaticText "Reloadable but less powerful Rocket Launcher that replaces DSin's original."
-	StaticText "It also spawns with Rocket Boxes."
-	StaticText "$SINOPT_DEFOFF",1
-	StaticText ""
-	Option "Vanilla Weapon Placements","sintweaks_vanillaweapons","OnOff"
-	//StaticText "The Chaingun spawns with the SMG, and the Rocket Launcher spawns with the Chaingun."
-	StaticText "Sin Tweaks' Rocket Launcher spawns alongside the Chaingun."
-	StaticText "Turn this on in maps that expect you to use explosives, as the Chaingun sometimes isn't enough."
-	StaticText "$SINOPT_DEFOFF",1
-	StaticText ""
-	Option "Custom Fuse Times","sintweaks_customfuse","OnOff"
-	StaticText "Enable to choose how long the fuses last on Grenades and Flashbangs."
-	Slider "Grenade Fuse","sintweaks_fusegrenade",5,140,5,0
-	Slider "Flashbang Fuse","sintweaks_fuseflashbang",5,140,5,0
-}
-OptionMenu "SinTweaksOptionsAmmo"{
-	Option "No Loose Ammo","sintweaks_nolooseammo","OnOff"
-	StaticText "Other than magazines, loose ammo will be replaced with ammo boxes."
-	StaticText "$SINOPT_DEFOFF",1
-	StaticText ""
-	Option "Overpressured Rounds Only","sintweaks_onlypowerrounds","OnOff"
-	StaticText "Other than magazines, Overpressured Rounds will replace all loose Regular Rounds."
-	StaticText "(This will override the Pistol Box spawn of `No Loose Ammo`.)"
-	StaticText "$SINOPT_DEFOFF",1
-}
-OptionMenu "SinTweaksOptionsRedundant"{
-	Title "Redundant Features"
-	StaticText "These are options that I'll consider removing."
-	StaticText ""
-	Option "Blue Potion","sintweaks_bluepotion","OnOff"
-	StaticText "Enables the Blue Potion, a tincture that reduces damage when ingested."
-	StaticText "$SINOPT_DEFOFF",1
-	StaticText ""
-	Option "Totem","sintweaks_totem","OnOff"
-	StaticText "A rare totem that sometimes replaces the BFG."
-	StaticText "$SINOPT_DEFOFF",1
-	StaticText ""
-	Option "Less Lethal Rounds","sintweaks_lesslethal","OnOff"
-	StaticText "Rubber rounds and bean bag shells."
-	StaticText "$SINOPT_DEFOFF",1
-	StaticText ""
-	Option "Incendiary Shells","sintweaks_incendiary","OnOff"
-	StaticText "Dragon's Breath shells."
 	StaticText "$SINOPT_DEFOFF",1
 }

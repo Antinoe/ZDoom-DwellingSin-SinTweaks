@@ -1,3 +1,2 @@
-GameInfo{
-	AddEventHandlers = "SinTweaksGeneralHandler","SinTweaksPropertyHandler","SinTweaksReplacementHandler","SinTweaksHotkeyHandler"
-}
+
+GameInfo{AddEventHandlers = "SinTweaksHotkeyHandler","SinTweaksMonsterLootHandler"}
